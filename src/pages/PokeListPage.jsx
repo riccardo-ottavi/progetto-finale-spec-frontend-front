@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { GlobalContext } from "../contexts/PokeContext"
 import ListCard from "../components/ListCard";
+import { Link } from "react-router-dom";
 
 export default function PokeListPage(){
 
@@ -9,10 +10,11 @@ export default function PokeListPage(){
     return(
         <div>
             {pokeList.map((poke) => (
-                <ListCard 
-                    key={poke.id}
-                    poke={poke}
-                />
+                <Link to={`/pokemons/${poke.id}`}  key={poke.id}>
+                    <ListCard 
+                        poke={poke}
+                    />
+                </Link>
             ))}
         </div>
     )

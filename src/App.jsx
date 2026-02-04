@@ -11,8 +11,8 @@ function App() {
       <GlobalProvider>
         <BrowserRouter>
           <Routes>
-            <Route path='/' element={<PokeListPage />} />
-            <Route path='/:id' element={<PokeDetailPage />} />
+            <Route path='/pokemons' element={<PokeListPage />} />
+            <Route path='/pokemons/:id' element={<PokeDetailPage />} />
           </Routes>
         </BrowserRouter>
       </GlobalProvider>
