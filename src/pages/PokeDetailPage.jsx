@@ -1,15 +1,29 @@
 import { useParams } from "react-router-dom"
-import { useContext } from "react";
-import { GlobalContext } from "../contexts/PokeContext";
+import { useEffect, useState } from "react";
+
 
 export default function PokeDetailPage(){
 
     const { id } = useParams()
-    const { pokeList } = useContext(GlobalContext);
+    const [pokeDetail, setPokeDetail] = useState(null)
 
-    const poke = pokeList?.find(p => p.id === Number(id));
+
+    async function fetchPokeDetail(pokeId){
+        const pokeRes = await fetch(`http://localhost:3001/pokemons/${pokeId}`)
+        const pokeData = await pokeRes.json()
+        setPokeDetail(pokeData)
+    }
+
+    useEffect(()=>{
+        fetchPokeDetail(id)
+        
+    },[id])
 
     return(
-        <h1>Pagina dettaglio: {poke?.title} </h1>
+        <div className="big-card">
+            <h1>Pagina dettaglio: {pokeDetail?.title} </h1>
+            <p>{pokeDetail?.primaryType}</p>
+        </div>
+        
     )
 }

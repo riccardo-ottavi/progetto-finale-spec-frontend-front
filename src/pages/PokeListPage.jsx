@@ -1,5 +1,6 @@
 import { useContext } from "react"
 import { GlobalContext } from "../contexts/PokeContext"
+import ListCard from "../components/ListCard";
 
 export default function PokeListPage(){
 
@@ -8,11 +9,10 @@ export default function PokeListPage(){
     return(
         <div>
             {pokeList.map((poke) => (
-                <div className="small-card" key={poke.id}>
-                    <img src={`/images/${poke.title.toLowerCase()}.png`} alt={poke.title} />
-                    <p>{poke.title}</p>
-                    <p>{poke.category}</p>
-                </div>
+                <ListCard 
+                    key={poke.id}
+                    poke={poke}
+                />
             ))}
         </div>
     )
