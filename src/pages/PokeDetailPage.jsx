@@ -22,12 +22,15 @@ export default function PokeDetailPage() {
     }, [id])
 
     return (
-        <div className="big-card">
-            <Link to={"/pokemons"}><button>Torna alla home</button></Link>
-            <h1>Pagina dettaglio: {pokeDetail?.title} </h1>
-            <p>{pokeDetail?.primaryType}</p>
-            <p>{pokeDetail?.secondaryType}</p>
-            <img src={`/images/${pokeDetail?.title.toLowerCase()}.png`} alt={pokeDetail?.title} />
+        <div className="detail-container">
+            <div className="big-card">
+                <Link to={"/pokemons"}><button>Torna alla home</button></Link>
+                <h1>{pokeDetail?.title} </h1>
+                <p>{pokeDetail?.primaryType}</p>
+                <p>{pokeDetail?.secondaryType}</p>
+                <p>{pokeDetail?.description}</p>
+                <img src={`/images/${pokeDetail?.title.toLowerCase()}.png`} alt={pokeDetail?.title} />
+            </div>
         </div>
 
     )

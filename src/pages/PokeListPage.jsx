@@ -8,7 +8,7 @@ export default function PokeListPage(){
     const { pokeList } = useContext(GlobalContext);
 
     return(
-        <div>
+        <div className="list-container">
             {pokeList.map((poke) => (
                 <Link to={`/pokemons/${poke.id}`}  key={poke.id}>
                     <ListCard 
