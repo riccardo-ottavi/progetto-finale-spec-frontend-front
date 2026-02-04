@@ -11,6 +11,14 @@
 }
 
 .small-card img{
-  width: 150px;
-  height: 150px;
+  height: 100px;
+}
+
+.big-card img{
+  height: 400px;
+}
+
+a{
+  text-decoration: none;
+  color: black;
 }

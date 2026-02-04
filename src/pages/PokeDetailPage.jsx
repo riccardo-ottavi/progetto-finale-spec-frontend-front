@@ -1,5 +1,7 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+const API_URL = import.meta.env.VITE_API_URL;
 
 
 export default function PokeDetailPage() {
@@ -9,7 +11,7 @@ export default function PokeDetailPage() {
 
 
     async function fetchPokeDetail(pokeId) {
-        const pokeRes = await fetch(`http://localhost:3001/pokemons/${pokeId}`)
+        const pokeRes = await fetch(`${API_URL}/pokemons/${pokeId}`)
         const pokeData = await pokeRes.json()
         console.log("RISPOSTA API:", pokeData)
         setPokeDetail(pokeData.pokemon)
@@ -21,6 +23,7 @@ export default function PokeDetailPage() {
 
     return (
         <div className="big-card">
+            <Link to={"/pokemons"}><button>Torna alla home</button></Link>
             <h1>Pagina dettaglio: {pokeDetail?.title} </h1>
             <p>{pokeDetail?.primaryType}</p>
             <p>{pokeDetail?.secondaryType}</p>
