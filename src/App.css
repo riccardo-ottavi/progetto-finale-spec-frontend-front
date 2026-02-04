@@ -3,3 +3,14 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.small-card{
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.small-card img{
+  width: 150px;
+  height: 150px;
+}
