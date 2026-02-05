@@ -11,7 +11,6 @@ export default function PokeListPage() {
     const [sortBy, setSortBy] = useState("title")
     const [sortOrder, setSortOrder] = useState(1)
 
-
     function handleCategoryChoice(e) {
         setSelectedCategory(e.target.value)
     }
@@ -35,10 +34,8 @@ export default function PokeListPage() {
             sortOrder * a[sortBy].localeCompare(b[sortBy])
         )
 
-
         return sorted
     }, [query, selectedCategory, sortBy, sortOrder, pokeList])
-
 
     return (
         <div className="list-container">
@@ -65,7 +62,6 @@ export default function PokeListPage() {
                 <option value="AZ">AZ</option>
                 <option value="ZA">ZA</option>
             </select>
-
 
             {/** Lista */}
             {sortedList.map((poke) => (
