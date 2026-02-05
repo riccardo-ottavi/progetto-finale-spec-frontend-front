@@ -14,15 +14,19 @@ export function GlobalProvider({children}){
     }
 
 
-    const [favourites, setFavourites] = useState([])
+    const [favurites, setFavorites] = useState([])
     
-    function addFavourite(){
-
+    function addFavorite(poke){
+        setFavorites([...prev],poke)
     }
 
-    function removeFavourite(){
+    function removeFavorite(){
         
     }
+
+    const isFavorite = (characterId) => {
+        return favorites.includes(characterId);
+    };
 
     async function fetchPokeList(){
         const pokeRes = await fetch(`${API_URL}/pokemons`)
@@ -35,7 +39,7 @@ export function GlobalProvider({children}){
     },[])
 
     return(
-        <GlobalContext.Provider value={{pokeList, setPokeList}}>
+        <GlobalContext.Provider value={{pokeList, setPokeList, addFavorite, isFavorite}}>
             {children}
         </GlobalContext.Provider>
     )

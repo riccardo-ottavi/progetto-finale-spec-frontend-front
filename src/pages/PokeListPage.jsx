@@ -65,11 +65,9 @@ export default function PokeListPage() {
 
             {/** Lista */}
             {sortedList.map((poke) => (
-                <Link to={`/pokemons/${poke.id}`} key={poke.id}>
-                    <ListCard
-                        poke={poke}
-                    />
-                </Link>
+                <ListCard
+                    poke={poke}
+                />
             ))}
         </div>
     )

@@ -9,7 +9,7 @@ export default function NavBar() {
             <nav>
                 <Link to="/">Home</Link>
                 <Link to="/comparatore">Comparatore</Link> 
-                <Link to="/favourites">Preferiti</Link> 
+                <Link to="/favorites">Preferiti</Link> 
             </nav>
 
         </div>
