@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from "react"
+import { useContext, useState, useMemo } from "react"
 import { GlobalContext } from "../contexts/PokeContext"
 import ListCard from "../components/ListCard";
 import { Link } from "react-router-dom";
@@ -10,13 +10,6 @@ export default function PokeListPage() {
     const [selectedCategory, setSelectedCategory] = useState("")
     const [sortBy, setSortBy] = useState("title")
     const [sortOrder, setSortOrder] = useState(1)
-
-    const filteredList = pokeList?.filter((p) => p?.title?.toLowerCase().includes(query) && p.category.includes(selectedCategory)
-    )
-
-    const sortedList = [...filteredList].sort((a, b) =>
-        sortOrder * a[sortBy].localeCompare(b[sortBy])
-    );
 
 
     function handleCategoryChoice(e) {
@@ -34,6 +27,18 @@ export default function PokeListPage() {
             setSortOrder(-1)
         }
     }
+
+    const sortedList = useMemo(() => {
+        const filteredList = pokeList?.filter((p) => p?.title?.toLowerCase().includes(query) && p?.category?.includes(selectedCategory))
+
+        const sorted = [...filteredList].sort((a, b) =>
+            sortOrder * a[sortBy].localeCompare(b[sortBy])
+        )
+
+
+        return sorted
+    }, [query, selectedCategory, sortBy, sortOrder, pokeList])
+
 
     return (
         <div className="list-container">
