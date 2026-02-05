@@ -1,4 +1,6 @@
-export default function ListCard({ poke }) {
+import React from "react"
+
+const ListCard = React.memo(({ poke }) => {
     return (
         <div className="small-card">
             <img src={`/images/${poke.title.toLowerCase()}.png`} alt={poke.title} />
@@ -6,4 +8,6 @@ export default function ListCard({ poke }) {
             <p>{poke.category}</p>
         </div>
     )
-}
+})
+
+export default ListCard
