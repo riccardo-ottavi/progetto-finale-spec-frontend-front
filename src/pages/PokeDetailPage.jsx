@@ -28,7 +28,7 @@ export default function PokeDetailPage() {
                 <p>{pokeDetail?.primaryType}</p>
                 <p>{pokeDetail?.secondaryType}</p>
                 <p>{pokeDetail?.description}</p>
-                <img src={`/images/${pokeDetail?.title.toLowerCase()}.png`} alt={pokeDetail?.title} />
+                <img src={`/images/pokemonSprites/${pokeDetail?.title.toLowerCase()}.png`} alt={pokeDetail?.title} />
                 <div className="stats">
                     <span>HP: {pokeDetail?.baseStats?.hp}</span>
                     <span>Attack: {pokeDetail?.baseStats?.attack}</span>

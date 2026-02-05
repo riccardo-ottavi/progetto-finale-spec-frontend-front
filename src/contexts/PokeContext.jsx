@@ -6,6 +6,23 @@ export const GlobalContext = createContext()
 export function GlobalProvider({children}){
 
     const [pokeList, setPokeList] = useState([])
+    const [duoToCompare, setDuoToCompare] = useState([])
+
+    {/*Mette il pokemon al primo o secondo posto della comparazione*/}
+    function placePokeInCompare(poke){
+    
+    }
+
+
+    const [favourites, setFavourites] = useState([])
+    
+    function addFavourite(){
+
+    }
+
+    function removeFavourite(){
+        
+    }
 
     async function fetchPokeList(){
         const pokeRes = await fetch(`${API_URL}/pokemons`)

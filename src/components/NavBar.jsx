@@ -8,7 +8,8 @@ export default function NavBar() {
             <h2>Sono la navbar</h2>
             <nav>
                 <Link to="/">Home</Link>
-                <Link to="/comparator">Comparatore</Link> 
+                <Link to="/comparatore">Comparatore</Link> 
+                <Link to="/favourites">Preferiti</Link> 
             </nav>
 
         </div>
