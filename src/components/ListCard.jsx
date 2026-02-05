@@ -5,10 +5,17 @@ import { Link } from "react-router-dom";
 
 const ListCard = React.memo(({ poke }) => {
 
-    const { addFavorite } = useContext(GlobalContext);
+    const { favorites, addFavorite, removeFavorite } = useContext(GlobalContext);
 
     function toggleFavorite() {
-
+        if(!favorites?.includes(poke.id)){
+            addFavorite(poke.id)
+            console.log(favorites)
+        }else{
+            removeFavorite(poke.id)
+            console.log(favorites)
+        }
+        
     }
 
     return (
