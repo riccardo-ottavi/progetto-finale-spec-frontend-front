@@ -3,41 +3,69 @@ import { GlobalContext } from "../contexts/PokeContext"
 import ListCard from "../components/ListCard";
 import { Link } from "react-router-dom";
 
-export default function PokeListPage(){
+export default function PokeListPage() {
 
     const { pokeList } = useContext(GlobalContext);
     const [query, setQuery] = useState("")
     const [selectedCategory, setSelectedCategory] = useState("")
+    const [sortBy, setSortBy] = useState("title")
+    const [sortOrder, setSortOrder] = useState(1)
 
-    const filteredList = pokeList?.filter((p) => p?.title?.toLowerCase().includes(query) && p.category.includes(selectedCategory) 
-)
+    const filteredList = pokeList?.filter((p) => p?.title?.toLowerCase().includes(query) && p.category.includes(selectedCategory)
+    )
 
-   
-    function handleCategoryChoice(e){
-        setSelectedCategory(e.target.value)   
+    const sortedList = [...filteredList].sort((a, b) =>
+        sortOrder * a[sortBy].localeCompare(b[sortBy])
+    );
+
+
+    function handleCategoryChoice(e) {
+        setSelectedCategory(e.target.value)
     }
-  
 
-    return(
+    function handleSort(e) {
+        setSortBy(e.target.value)
+    }
+
+    function handleSortOrder(e) {
+        if (e.target.value === "AZ") {
+            setSortOrder(1)
+        } else if (e.target.value === "ZA") {
+            setSortOrder(-1)
+        }
+    }
+
+    return (
         <div className="list-container">
             {/** Barra di ricerca */}
-            <input type="text" onChange={(e) => setQuery(e.target.value)}/>
+            <input type="text" onChange={(e) => setQuery(e.target.value)} />
 
             {/** Filtra categoria */}
-           <select value={selectedCategory} onChange={handleCategoryChoice}>
+            <select value={selectedCategory} onChange={handleCategoryChoice}>
                 <option value="">Tutti</option>
                 <option value="Attaccante Fisico">Attaccante Fisico</option>
                 <option value="Attaccante Speciale">Attaccante Speciale</option>
                 <option value="Attaccante Misto">Attaccante Misto</option>
                 <option value="Difensore">Difensore</option>
+            </select>
 
-           </select>
-          
-            
+            {/** Colonna di ordinamento*/}
+            <select value={sortBy} onChange={handleSort}>
+                <option value="title">Nome</option>
+                <option value="category">Ruolo</option>
+            </select>
+
+            {/** Crescente o decrescente*/}
+            <select onChange={handleSortOrder}>
+                <option value="AZ">AZ</option>
+                <option value="ZA">ZA</option>
+            </select>
+
+
             {/** Lista */}
-            {filteredList.map((poke) => (
-                <Link to={`/pokemons/${poke.id}`}  key={poke.id}>
-                    <ListCard 
+            {sortedList.map((poke) => (
+                <Link to={`/pokemons/${poke.id}`} key={poke.id}>
+                    <ListCard
                         poke={poke}
                     />
                 </Link>
