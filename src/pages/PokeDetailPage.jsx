@@ -1,7 +1,8 @@
 import { useParams } from "react-router-dom"
-import { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useEffect } from "react";
+import BigCard from "../components/BigCard";
 import { GlobalContext } from "../contexts/PokeContext";
+import { Link } from "react-router-dom";
 
 
 export default function PokeDetailPage() {
@@ -13,6 +14,7 @@ export default function PokeDetailPage() {
         loadDetail();
     }, [id]);
 
+    //recupera i dettagli a partire dall' id 
     async function loadDetail() {
         const detail = await fetchPokeDetail(id);
         setPokeDetail(detail);
@@ -20,22 +22,11 @@ export default function PokeDetailPage() {
 
     return (
         <div className="detail-container">
-            <div className="big-card">
-                <Link to={"/"}><button>Torna alla home</button></Link>
-                <h1>{pokeDetail?.title} </h1>
-                <p>{pokeDetail?.primaryType}</p>
-                <p>{pokeDetail?.secondaryType}</p>
-                <p>{pokeDetail?.description}</p>
-                <img src={`/images/pokemonSprites/${pokeDetail?.title?.toLowerCase()}.png`} alt={pokeDetail?.title} />
-                <div className="stats">
-                    <span>HP: {pokeDetail?.baseStats?.hp}</span>
-                    <span>Attack: {pokeDetail?.baseStats?.attack}</span>
-                    <span>Defense: {pokeDetail?.baseStats?.defense}</span>
-                    <span>Sp. Atk: {pokeDetail?.baseStats?.specialAttack}</span>
-                    <span>Sp. Def: {pokeDetail?.baseStats?.specialDefense}</span>
-                    <span>Speed: {pokeDetail?.baseStats?.speed}</span>
-                </div>
-            </div>
+            <BigCard
+                poke={pokeDetail} 
+            />
+            <Link to={"/"}><button>Torna alla home</button></Link>
         </div>
+        
     )
 }

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import { useContext, useEffect } from "react"
 import { GlobalContext } from "../contexts/PokeContext"
+import BigCard from "../components/BigCard";
 
 export default function ComparatorPage() {
 
@@ -10,6 +11,7 @@ export default function ComparatorPage() {
         makeCompare();
     }, [duoToCompare]);
 
+    //ad ogni cambiamento del duo aggiorna i dettagli
     //se il posto è vuoto: null (segnaposto)
     async function makeCompare() {
         const results = await Promise.all(
@@ -24,22 +26,18 @@ export default function ComparatorPage() {
     return (
         <>
             <div className="comparator">
-                <h2>Qua si comparano 2 pokemon</h2>
                 <Link to={"/"}><button>Torna alla lista</button></Link>
                 {compareDetails.map((poke, index) => (
                     <div key={index} className="compare-slot">
                         {poke ? (
-                            <div>
-                                <p>{poke.title}</p>
-                                <p>{poke.description}</p>
-                            </div>
-
+                            <BigCard
+                                poke={poke} 
+                            />
                         ) : (
                             <p>Slot vuoto</p>
                         )}
                     </div>
                 ))}
-
             </div>
         </>
     )
