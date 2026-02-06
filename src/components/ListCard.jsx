@@ -15,7 +15,6 @@ const ListCard = React.memo(({ poke }) => {
             removeFavorite(poke.id)
             console.log(favorites)
         }
-        
     }
 
     return (
