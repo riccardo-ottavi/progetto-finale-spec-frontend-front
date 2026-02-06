@@ -7,11 +7,16 @@ import { GlobalContext } from "../contexts/PokeContext";
 export default function PokeDetailPage() {
 
     const { id } = useParams()
-    const {fetchPokeDetail, pokeDetail} = useContext(GlobalContext)
+    const { fetchPokeDetail, pokeDetail, setPokeDetail } = useContext(GlobalContext)
 
     useEffect(() => {
-        fetchPokeDetail(id)
-    }, [id])
+        loadDetail();
+    }, [id]);
+
+    async function loadDetail() {
+        const detail = await fetchPokeDetail(id);
+        setPokeDetail(detail);
+    }
 
     return (
         <div className="detail-container">
@@ -21,7 +26,7 @@ export default function PokeDetailPage() {
                 <p>{pokeDetail?.primaryType}</p>
                 <p>{pokeDetail?.secondaryType}</p>
                 <p>{pokeDetail?.description}</p>
-                <img src={`/images/pokemonSprites/${pokeDetail?.title.toLowerCase()}.png`} alt={pokeDetail?.title} />
+                <img src={`/images/pokemonSprites/${pokeDetail?.title?.toLowerCase()}.png`} alt={pokeDetail?.title} />
                 <div className="stats">
                     <span>HP: {pokeDetail?.baseStats?.hp}</span>
                     <span>Attack: {pokeDetail?.baseStats?.attack}</span>

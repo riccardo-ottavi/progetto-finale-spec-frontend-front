@@ -9,6 +9,7 @@ export function GlobalProvider({ children }) {
     const [favorites, setFavorites] = useState([]);
     const [duoToCompare, setDuoToCompare] = useState([null, null]);
     const [pokeDetail, setPokeDetail] = useState(null);
+    const [compareDetails, setCompareDetails] = useState([null, null]);
 
     {/*Copia il duo e sostituisce lo slot richiesto*/ }
    function placePokeInCompare(pokeId, place) {
@@ -18,8 +19,6 @@ export function GlobalProvider({ children }) {
         return newDuo;
     });
 }
-
-
 
     function addFavorite(pokeId) {
         setFavorites(prev => [...prev, pokeId])
@@ -43,7 +42,7 @@ export function GlobalProvider({ children }) {
         const pokeRes = await fetch(`${API_URL}/pokemons/${pokeId}`)
         const pokeData = await pokeRes.json()
         console.log("RISPOSTA API:", pokeData)
-        setPokeDetail(pokeData.pokemon)
+        return pokeData.pokemon
     }
 
     useEffect(() => {
@@ -63,7 +62,9 @@ export function GlobalProvider({ children }) {
                 pokeDetail,
                 setPokeDetail,
                 placePokeInCompare,
-                duoToCompare
+                duoToCompare,
+                compareDetails,
+                setCompareDetails
             }}
         >
             {children}
