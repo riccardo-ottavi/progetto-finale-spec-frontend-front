@@ -57,7 +57,8 @@ export function GlobalProvider({ children }) {
                 removeFavorite,
                 isFavorite,
                 fetchPokeDetail,
-                pokeDetail
+                pokeDetail,
+                setPokeDetail
             }}
         >
             {children}

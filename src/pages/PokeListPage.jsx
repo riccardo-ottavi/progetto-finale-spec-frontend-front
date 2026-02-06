@@ -65,6 +65,7 @@ export default function PokeListPage() {
             {/** Lista */}
             {sortedList.map((poke) => (
                 <ListCard
+                    key={poke.id}
                     poke={poke}
                 />
             ))}
