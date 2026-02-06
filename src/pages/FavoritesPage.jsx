@@ -19,7 +19,6 @@ export default function FavoritesPage(){
                     <ListCard 
                         poke={p}
                     />
-                    <button onClick={() => removeFavorite(p.id)}>Rimuovi dai preferiti</button>
                 </div>
                 
             ))}

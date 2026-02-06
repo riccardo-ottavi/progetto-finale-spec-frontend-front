@@ -48,6 +48,7 @@ export default function PokeListPage() {
                 <option value="Attaccante Speciale">Attaccante Speciale</option>
                 <option value="Attaccante Misto">Attaccante Misto</option>
                 <option value="Difensore">Difensore</option>
+                <option value="Difensore Speciale">Difensore Speciale</option>
             </select>
 
             {/** Colonna di ordinamento*/}

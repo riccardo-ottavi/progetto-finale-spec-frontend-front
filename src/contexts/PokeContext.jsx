@@ -7,14 +7,17 @@ export function GlobalProvider({ children }) {
 
     const [pokeList, setPokeList] = useState([]);
     const [favorites, setFavorites] = useState([]);
-    const [duoToCompare, setDuoToCompare] = useState([]);
+    const [duoToCompare, setDuoToCompare] = useState([null, null]);
     const [pokeDetail, setPokeDetail] = useState(null);
 
-    {/*Mette il pokemon al primo o secondo posto della comparazione*/ }
-    function placePokeInCompare(poke) {
-
-    }
-
+    {/*Copia il duo e sostituisce lo slot richiesto*/ }
+   function placePokeInCompare(pokeId, place) {
+    setDuoToCompare(prev => {
+        const newDuo = [...prev]; 
+        newDuo[place] = pokeId;   
+        return newDuo;
+    });
+}
 
 
 
@@ -58,7 +61,9 @@ export function GlobalProvider({ children }) {
                 isFavorite,
                 fetchPokeDetail,
                 pokeDetail,
-                setPokeDetail
+                setPokeDetail,
+                placePokeInCompare,
+                duoToCompare
             }}
         >
             {children}
