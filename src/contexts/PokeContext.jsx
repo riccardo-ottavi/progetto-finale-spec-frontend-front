@@ -5,9 +5,10 @@ export const GlobalContext = createContext()
 
 export function GlobalProvider({ children }) {
 
-    const [pokeList, setPokeList] = useState([])
-    const [favorites, setFavorites] = useState([])
-    const [duoToCompare, setDuoToCompare] = useState([])
+    const [pokeList, setPokeList] = useState([]);
+    const [favorites, setFavorites] = useState([]);
+    const [duoToCompare, setDuoToCompare] = useState([]);
+    const [pokeDetail, setPokeDetail] = useState(null);
 
     {/*Mette il pokemon al primo o secondo posto della comparazione*/ }
     function placePokeInCompare(poke) {
@@ -35,6 +36,13 @@ export function GlobalProvider({ children }) {
         setPokeList(pokeData)
     }
 
+    async function fetchPokeDetail(pokeId) {
+        const pokeRes = await fetch(`${API_URL}/pokemons/${pokeId}`)
+        const pokeData = await pokeRes.json()
+        console.log("RISPOSTA API:", pokeData)
+        setPokeDetail(pokeData.pokemon)
+    }
+
     useEffect(() => {
         fetchPokeList()
     }, [])
@@ -47,7 +55,9 @@ export function GlobalProvider({ children }) {
                 favorites,
                 addFavorite,
                 removeFavorite,
-                isFavorite
+                isFavorite,
+                fetchPokeDetail,
+                pokeDetail
             }}
         >
             {children}

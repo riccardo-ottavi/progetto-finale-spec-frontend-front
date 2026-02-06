@@ -1,20 +1,13 @@
 import { useParams } from "react-router-dom"
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-const API_URL = import.meta.env.VITE_API_URL;
+import { GlobalContext } from "../contexts/PokeContext";
 
 
 export default function PokeDetailPage() {
 
     const { id } = useParams()
-    const [pokeDetail, setPokeDetail] = useState(null)
-
-    async function fetchPokeDetail(pokeId) {
-        const pokeRes = await fetch(`${API_URL}/pokemons/${pokeId}`)
-        const pokeData = await pokeRes.json()
-        console.log("RISPOSTA API:", pokeData)
-        setPokeDetail(pokeData.pokemon)
-    }
+    const {fetchPokeDetail, pokeDetail} = useContext(GlobalContext)
 
     useEffect(() => {
         fetchPokeDetail(id)

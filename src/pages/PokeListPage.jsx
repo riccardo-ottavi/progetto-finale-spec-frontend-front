@@ -1,7 +1,6 @@
 import { useContext, useState, useMemo } from "react"
 import { GlobalContext } from "../contexts/PokeContext"
 import ListCard from "../components/ListCard";
-import { Link } from "react-router-dom";
 
 export default function PokeListPage() {
 
