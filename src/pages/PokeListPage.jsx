@@ -64,12 +64,23 @@ export default function PokeListPage() {
             </select>
 
             {/** Lista */}
-            {sortedList.map((poke) => (
-                <ListCard
-                    key={poke.id}
-                    poke={poke}
-                />
-            ))}
+            <table>
+                <thead className="row">
+                    <tr>
+                        <th className="cell">Nome</th>
+                        <th className="cell">Ruolo</th>   
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {sortedList.map((poke) => (
+                        <ListCard
+                            key={poke.id}
+                            poke={poke}
+                        />
+                    ))}
+                </tbody>
+            </table>
         </div>
     )
 }
