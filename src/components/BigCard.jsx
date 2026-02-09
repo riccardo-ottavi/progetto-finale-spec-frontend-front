@@ -1,4 +1,7 @@
 export default function BigCard({poke}) {
+
+    const MAX_STAT = 255;
+
     return (
         <div className="big-card">
             
@@ -8,12 +11,24 @@ export default function BigCard({poke}) {
             <p>{poke?.description}</p>
             <img src={`/images/pokemonSprites/${poke?.title?.toLowerCase()}.png`} alt={poke?.title} />
             <div className="stats">
-                <span>HP: {poke?.baseStats?.hp}</span>
-                <span>Attack: {poke?.baseStats?.attack}</span>
-                <span>Defense: {poke?.baseStats?.defense}</span>
-                <span>Sp. Atk: {poke?.baseStats?.specialAttack}</span>
-                <span>Sp. Def: {poke?.baseStats?.specialDefense}</span>
-                <span>Speed: {poke?.baseStats?.speed}</span>
+                <div className="stat-bar"
+                    style={{ width: `calc(100% * ${poke?.baseStats?.hp} / ${MAX_STAT})` }}
+                >HP: {poke?.baseStats?.hp}</div>
+                <div className="stat-bar"
+                    style={{ width: `calc(100% * ${poke?.baseStats?.attack} / ${MAX_STAT})` }}
+                >Attack: {poke?.baseStats?.attack}</div>
+                <div className="stat-bar"
+                    style={{ width: `calc(100% * ${poke?.baseStats?.defense} / ${MAX_STAT})` }}
+                >Defense: {poke?.baseStats?.defense}</div>
+               <div className="stat-bar"
+                    style={{ width: `calc(100% * ${poke?.baseStats?.specialAttack} / ${MAX_STAT})` }}
+                >Special Attack: {poke?.baseStats?.specialAttack}</div>
+                <div className="stat-bar"
+                    style={{ width: `calc(100% * ${poke?.baseStats?.specialDefense} / ${MAX_STAT})` }}
+                >Special Defense: {poke?.baseStats?.specialDefense}</div>
+                <div className="stat-bar"
+                    style={{ width: `calc(100% * ${poke?.baseStats?.speed} / ${MAX_STAT})` }}
+                >Speed: {poke?.baseStats?.speed}</div>
             </div>
         </div>
     )

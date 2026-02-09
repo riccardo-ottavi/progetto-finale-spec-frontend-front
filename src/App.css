@@ -50,6 +50,10 @@ tr a {
   background-color: white;
 }
 
+.stat-bar{
+  border: 1px solid black;
+}
+
 table{
   width: 100%;
 }
