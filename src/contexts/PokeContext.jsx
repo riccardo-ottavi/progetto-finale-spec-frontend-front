@@ -11,30 +11,11 @@ export function GlobalProvider({ children }) {
     const [pokeDetail, setPokeDetail] = useState(null);
     const [compareDetails, setCompareDetails] = useState([null, null]);
 
-    {/*Copia il duo e sostituisce lo slot richiesto*/ }
-   function placePokeInCompare(pokeId, place) {
-    setDuoToCompare(prev => {
-        const newDuo = [...prev]; 
-        newDuo[place] = pokeId;   
-        return newDuo;
-    });
-}
+    useEffect(() => {
+        fetchPokeList()
+    }, [])
 
-    function isSlotOccupiedByPokemon(pokeId, place){
-        return (duoToCompare[place] === pokeId)
-    }
-
-    function addFavorite(pokeId) {
-        setFavorites(prev => [...prev, pokeId])
-    }
-
-    function removeFavorite(pokeId) {
-        setFavorites(prev => prev.filter(id => id !== pokeId));
-    }
-
-    function isFavorite(characterId) {
-        return favorites.includes(characterId);
-    };
+    {/*--------FUNZIONI FETCH---------*/}
 
     async function fetchPokeList() {
         const pokeRes = await fetch(`${API_URL}/pokemons`)
@@ -49,9 +30,37 @@ export function GlobalProvider({ children }) {
         return pokeData.pokemon
     }
 
-    useEffect(() => {
-        fetchPokeList()
-    }, [])
+    {/*--------FUNZIONI PREFERITI---------*/}
+
+    function addFavorite(pokeId) {
+        setFavorites(prev => [...prev, pokeId])
+    }
+
+    function removeFavorite(pokeId) {
+        setFavorites(prev => prev.filter(id => id !== pokeId));
+    }
+
+    function isFavorite(characterId) {
+        return favorites.includes(characterId);
+    };
+
+    {/*--------FUNZIONI CONFRONTO---------*/}
+
+    {/*Copia il duo e sostituisce lo slot richiesto*/}
+    function placePokeInCompare(pokeId, place) {
+        setDuoToCompare(prev => {
+            const newDuo = [...prev];
+            newDuo[place] = pokeId;
+            return newDuo;
+        });
+    }
+
+    {/*Dato un id e una posizione nel confronto, 
+    determina se il posto è occupato dal poke con quell'id*/}
+    function isSlotOccupiedByPokemon(pokeId, place) {
+        return (duoToCompare[place] === pokeId)
+    }
+
 
     return (
         <GlobalContext.Provider

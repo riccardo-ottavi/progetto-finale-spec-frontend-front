@@ -7,7 +7,6 @@ export default function ComparatorPage() {
 
     const { duoToCompare, fetchPokeDetail, compareDetails, setCompareDetails } = useContext(GlobalContext)
     
-    //ad ogni cambiamento del duo aggiorna i dettagli
     useEffect(() => {
         makeCompare();
     }, [duoToCompare]);

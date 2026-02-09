@@ -27,8 +27,10 @@ export default function PokeListPage() {
     }
 
     const sortedList = useMemo(() => {
+        {/** Filtra la lista per query e categoria */}
         const filteredList = pokeList?.filter((p) => p?.title?.toLowerCase().includes(query) && p?.category?.includes(selectedCategory))
 
+        {/** Applica sortBy e sortOrder */}
         const sorted = [...filteredList].sort((a, b) =>
             sortOrder * a[sortBy].localeCompare(b[sortBy])
         )
