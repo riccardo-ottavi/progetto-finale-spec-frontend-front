@@ -6,10 +6,13 @@ export default function BigCard({poke}) {
         <div className="big-card">
             
             <h1>{poke?.title} </h1>
-            <p>{poke?.primaryType}</p>
-            <p>{poke?.secondaryType}</p>
+            <img src={`/images/icons/${poke?.primaryType?.toLowerCase()}.svg`} alt="" className="type-icon" />
+            {poke?.secondaryType && (
+                 <img src={`/images/icons/${poke?.secondaryType?.toLowerCase()}.svg`} alt="" className="type-icon"/>
+            )}
+            <p>{poke?.category}</p>
             <p>{poke?.description}</p>
-            <img src={`/images/pokemonSprites/${poke?.title?.toLowerCase()}.png`} alt={poke?.title} />
+            <img src={`/images/pokemonSprites/${poke?.title?.toLowerCase()}.png`} alt={poke?.title} className="big-poke-sprite"/>
             <div className="stats">
                 <div className="stat-bar"
                     style={{ width: `calc(100% * ${poke?.baseStats?.hp} / ${MAX_STAT})`, backgroundColor: `#69DC12` }}

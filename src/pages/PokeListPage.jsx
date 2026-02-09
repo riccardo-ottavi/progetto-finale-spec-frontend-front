@@ -37,7 +37,7 @@ export default function PokeListPage() {
     }, [query, selectedCategory, sortBy, sortOrder, pokeList])
 
     return (
-        <div className="list-container">
+        <div className="container">
             {/** Barra di ricerca */}
             <input type="text" onChange={(e) => setQuery(e.target.value)} />
 

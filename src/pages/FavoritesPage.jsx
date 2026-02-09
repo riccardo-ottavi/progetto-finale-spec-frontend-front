@@ -12,7 +12,7 @@ export default function FavoritesPage(){
     ))
 
     return(
-        <div className="favs-container">
+        <div className="container">
         <h2>Lista Preferiti</h2>
             {favPokeList?.map((p) => (
                 <div key={p.id}>
