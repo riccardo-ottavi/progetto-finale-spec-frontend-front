@@ -20,6 +20,10 @@ export function GlobalProvider({ children }) {
     });
 }
 
+    function isSlotOccupiedByPokemon(pokeId, place){
+        return (duoToCompare[place] === pokeId)
+    }
+
     function addFavorite(pokeId) {
         setFavorites(prev => [...prev, pokeId])
     }
@@ -28,7 +32,7 @@ export function GlobalProvider({ children }) {
         setFavorites(prev => prev.filter(id => id !== pokeId));
     }
 
-    const isFavorite = (characterId) => {
+    function isFavorite(characterId) {
         return favorites.includes(characterId);
     };
 
@@ -64,7 +68,8 @@ export function GlobalProvider({ children }) {
                 placePokeInCompare,
                 duoToCompare,
                 compareDetails,
-                setCompareDetails
+                setCompareDetails,
+                isSlotOccupiedByPokemon
             }}
         >
             {children}

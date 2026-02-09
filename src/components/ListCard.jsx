@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const ListCard = React.memo(({ poke }) => {
 
-    const { favorites, addFavorite, removeFavorite, isFavorite, placePokeInCompare } = useContext(GlobalContext);
+    const { favorites, addFavorite, removeFavorite, isFavorite, placePokeInCompare, isSlotOccupiedByPokemon } = useContext(GlobalContext);
 
     function toggleFavorite() {
         if (!favorites?.includes(poke.id)) {
@@ -27,11 +27,13 @@ const ListCard = React.memo(({ poke }) => {
                     <td className="cell">{poke.category}</td>
                 </Link>
                 <div className="icons cell" >
-                    <img src="/images/icons/a-solid-full.svg" alt=""
+                    <img 
+                        src={isSlotOccupiedByPokemon(poke.id, 0) ? "/images/icons/a-solid-yellow.svg" : "/images/icons/a-solid-full.svg"}
                         onClick={() => placePokeInCompare(poke.id, 0)}
                     />
                     <img src="/images/icons/scale-balanced-solid-full.svg" alt="" />
-                    <img src="/images/icons/b-solid-full.svg" alt=""
+                    <img alt=""
+                        src={isSlotOccupiedByPokemon(poke.id, 1) ? "/images/icons/b-solid-yellow.svg" : "/images/icons/b-solid-full.svg"}
                         onClick={() => placePokeInCompare(poke.id, 1)}
                     />
 
