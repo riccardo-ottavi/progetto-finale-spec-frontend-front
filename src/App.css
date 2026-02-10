@@ -37,6 +37,7 @@ tr a {
   justify-content: space-around;
   background-color: white;
   min-width: 735px;
+  border-radius: 10px;
 }
 
 .small-card *{
@@ -46,10 +47,20 @@ tr a {
 .small-card img{
   height: 130px;
   padding: 8px;
+  max-width: 190px;
 }
 
 .big-card{
   background-color: white;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  gap: 10px;
+  height: 500px;
+  width: 730px;
+  border: 1px rgba(0, 0, 0, 0.274) solid;
+  border-radius: 10px;
+  padding: 20px;
 }
 
 .stat-bar{
@@ -57,7 +68,12 @@ tr a {
 }
 
 .stats{
-  border: 1px solid black
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 50px;
+  left: 20px;
+  width: 60%;
 }
 
 table{
@@ -65,7 +81,14 @@ table{
 }
 
 .big-poke-sprite{
-  height: 400px;
+  display: flex;
+  position: relative;
+  max-height: 350px;
+  max-width: 350px;
+  align-self: center;
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
 }
 
 a{
@@ -100,10 +123,10 @@ nav a {
 
 
 .detail-container {
-  width: 65vw;
   height: 80vh;
-  margin: 0 auto;
   margin-top: 5vh;
+  display: flex;
+  justify-content: center;
 }
 
 
@@ -113,13 +136,53 @@ nav a {
 
 .comparator{
   display: flex;
+  margin-top: 5vh;
+  justify-content: center;
 }
 
 .active {
   border-bottom: 1px solid black;
 }
 
+.types-box{
+  display: flex;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
 .type-icon {
-  width: 30px;
   height: 30px;
+}
+
+.poke-name{
+  display: flex;
+}
+
+.dex-text{
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border: solid black 1px;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 5vh;
+}
+
+h1{
+  font-size: 40px;
+}
+
+h3{
+  font-size: 18px;
+  border-bottom: solid rgba(0, 0, 0, 0.205) 1px;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.poke-infos{
+  display: flex;
+  align-items: center;
+  gap: 80px;
 }

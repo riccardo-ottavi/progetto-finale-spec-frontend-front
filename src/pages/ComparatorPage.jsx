@@ -26,7 +26,6 @@ export default function ComparatorPage() {
     return (
         <>
             <div className="comparator">
-                <Link to={"/"}><button>Torna alla lista</button></Link>
                 {compareDetails.map((poke, index) => (
                     <div key={index} className="compare-slot">
                         {poke ? (

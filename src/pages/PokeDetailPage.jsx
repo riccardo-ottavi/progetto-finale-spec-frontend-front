@@ -25,7 +25,6 @@ export default function PokeDetailPage() {
             <BigCard
                 poke={pokeDetail} 
             />
-            <Link to={"/"}><button>Torna alla home</button></Link>
         </div>
         
     )

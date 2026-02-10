@@ -1,19 +1,27 @@
-export default function BigCard({poke}) {
+export default function BigCard({ poke }) {
 
     //valore massimo raggiungibile in pokemon dalla singola statistica base (standard) 
     const MAX_STAT = 255;
 
     return (
         <div className="big-card">
+
+            <div className="poke-infos">
+                <h1 className="poke-name">{poke?.title} </h1>   
+                <h3>{poke?.category}</h3>
+            </div>
             
-            <h1>{poke?.title} </h1>
-            <img src={`https://pokechart.weebly.com/uploads/1/3/7/0/13704287/${poke?.primaryType?.toLowerCase()}_orig.png`} alt="" className="type-icon" />
-            {poke?.secondaryType && (
-                <img src={`https://pokechart.weebly.com/uploads/1/3/7/0/13704287/${poke?.secondaryType?.toLowerCase()}_orig.png`} alt="" className="type-icon"/>
-            )}
-            <p>{poke?.category}</p>
-            <p>{poke?.description}</p>
-            <img src={poke?.image} alt={poke?.title} className="big-poke-sprite"/>
+            <div className="types-box">
+                <img src={`https://pokechart.weebly.com/uploads/1/3/7/0/13704287/${poke?.primaryType?.toLowerCase()}_orig.png`} alt="" className="type-icon" />
+                {poke?.secondaryType && (
+                    <img src={`https://pokechart.weebly.com/uploads/1/3/7/0/13704287/${poke?.secondaryType?.toLowerCase()}_orig.png`} alt="" className="type-icon" />
+                )}
+            </div>
+            <div className="dex-text">
+                <p>{poke?.description}</p>
+            </div>
+
+            <img src={poke?.image} alt={poke?.title} className="big-poke-sprite" />
             <div className="stats">
                 <div className="stat-bar"
                     style={{ width: `calc(100% * ${poke?.baseStats?.hp} / ${MAX_STAT})`, backgroundColor: `#69DC12` }}
@@ -24,7 +32,7 @@ export default function BigCard({poke}) {
                 <div className="stat-bar"
                     style={{ width: `calc(100% * ${poke?.baseStats?.defense} / ${MAX_STAT})`, backgroundColor: `#E86412` }}
                 >Defense: {poke?.baseStats?.defense}</div>
-               <div className="stat-bar"
+                <div className="stat-bar"
                     style={{ width: `calc(100% * ${poke?.baseStats?.specialAttack} / ${MAX_STAT})`, backgroundColor: `#14C3F1` }}
                 >Special Attack: {poke?.baseStats?.specialAttack}</div>
                 <div className="stat-bar"
