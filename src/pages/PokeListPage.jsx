@@ -5,10 +5,12 @@ import ListCard from "../components/ListCard";
 export default function PokeListPage() {
 
     const { pokeList } = useContext(GlobalContext);
-    const [query, setQuery] = useState("")
-    const [selectedCategory, setSelectedCategory] = useState("")
-    const [sortBy, setSortBy] = useState("title")
-    const [sortOrder, setSortOrder] = useState(1)
+    const [query, setQuery] = useState("");
+    const [selectedCategory, setSelectedCategory] = useState("");
+    const [sortBy, setSortBy] = useState("title");
+    const [sortOrder, setSortOrder] = useState(1);
+
+    const sortIcon = sortOrder === 1 ? "↓" : "↑";
 
     function handleCategoryChoice(e) {
         setSelectedCategory(e.target.value)
@@ -25,7 +27,7 @@ export default function PokeListPage() {
 
     const sortedList = useMemo(() => {
         const filteredList = pokeList?.filter((p) => p?.title?.toLowerCase().includes(query) && p?.category?.includes(selectedCategory))
-        {/** Applica sortBy e sortOrder */}
+        {/** Applica sortBy e sortOrder */ }
         const sorted = [...filteredList].sort((a, b) =>
             sortOrder * a[sortBy].localeCompare(b[sortBy])
         )
@@ -34,25 +36,39 @@ export default function PokeListPage() {
 
     return (
         <div className="container">
-            {/** Barra di ricerca */}
-            <input type="text" onChange={(e) => setQuery(e.target.value)} />
 
-            {/** Filtra categoria */}
-            <select value={selectedCategory} onChange={handleCategoryChoice}>
-                <option value="">Tutti</option>
-                <option value="Attaccante Fisico">Attaccante Fisico</option>
-                <option value="Attaccante Speciale">Attaccante Speciale</option>
-                <option value="Attaccante Misto">Attaccante Misto</option>
-                <option value="Difensore">Difensore</option>
-                <option value="Difensore Speciale">Difensore Speciale</option>
-            </select>
-          
+
             {/** Lista */}
             <table>
                 <thead className="row">
+                    {/** Barra di ricerca */}
+                    <input
+                        type="text"
+                        onChange={(e) => setQuery(e.target.value)}
+                        placeholder="Cerca..." />
+
+                    {/** Filtra categoria */}
+                    <select value={selectedCategory} onChange={handleCategoryChoice}>
+                        <option value="">Tutti</option>
+                        <option value="Attaccante Fisico">Attaccante Fisico</option>
+                        <option value="Attaccante Speciale">Attaccante Speciale</option>
+                        <option value="Attaccante Misto">Attaccante Misto</option>
+                        <option value="Difensore">Difensore</option>
+                        <option value="Difensore Speciale">Difensore Speciale</option>
+                    </select>
                     <tr>
-                        <th className="cell" onClick={() => handleSort("title")}>Nome</th>
-                        <th className="cell" onClick={() => handleSort("category")}>Ruolo</th>   
+                        <th
+                            className="cell"
+                            onClick={() => handleSort("title")}
+                        >
+                            Nome {sortBy === "title" && sortIcon}
+                        </th>
+                        <th 
+                            className="cell" 
+                            onClick={() => handleSort("category")}
+                        >
+                            Ruolo {sortBy === "category" && sortIcon}
+                        </th>
                     </tr>
                 </thead>
 

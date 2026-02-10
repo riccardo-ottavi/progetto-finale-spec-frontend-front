@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom"
 import { useContext, useEffect } from "react"
 import { GlobalContext } from "../contexts/PokeContext"
 import BigCard from "../components/BigCard";
+import EmptySlotCard from "../components/EmptySlotCard";
 
 export default function ComparatorPage() {
 
@@ -33,7 +33,7 @@ export default function ComparatorPage() {
                                 poke={poke} 
                             />
                         ) : (
-                            <p>Slot vuoto</p>
+                            <EmptySlotCard />
                         )}
                     </div>
                 ))}

@@ -80,6 +80,14 @@ table{
   width: 100%;
 }
 
+input{
+  border-radius: 10px;
+}
+
+select{
+  border-radius: 10px;
+}
+
 .big-poke-sprite{
   display: flex;
   position: relative;
@@ -95,6 +103,8 @@ a{
   text-decoration: none;
   color: black;
 }
+
+
 
 .container{
   overflow-y: scroll;
