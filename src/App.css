@@ -65,6 +65,9 @@ tr a {
 
 .stat-bar{
   border: 1px solid black;
+  height: 35px;
+  display: flex;
+  align-items: center;
 }
 
 .stats{
@@ -73,7 +76,7 @@ tr a {
   position: absolute;
   bottom: 50px;
   left: 20px;
-  width: 60%;
+  width: 70%;
 }
 
 table{
@@ -82,6 +85,12 @@ table{
 
 input{
   border-radius: 10px;
+}
+
+.stat-bar span{
+  font-size: 11px;
+  font-weight: 600;
+  margin-left: 5px;
 }
 
 select{
@@ -151,7 +160,9 @@ nav a {
 }
 
 .active {
-  border-bottom: 1px solid black;
+  transform: translateY(-1.5px);
+  color: #FFDE00;
+  font-weight: 800;
 }
 
 .types-box{

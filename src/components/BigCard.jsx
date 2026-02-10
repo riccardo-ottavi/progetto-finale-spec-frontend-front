@@ -46,22 +46,22 @@ export default function BigCard({ poke }) {
             <div className="stats">
                 <div className="stat-bar"
                     style={{ width: `calc(100% * ${poke?.baseStats?.hp} / ${MAX_STAT})`, backgroundColor: `#69DC12` }}
-                >HP: {poke?.baseStats?.hp}</div>
+                ><span>HP {poke?.baseStats?.hp}</span></div>
                 <div className="stat-bar"
                     style={{ width: `calc(100% * ${poke?.baseStats?.attack} / ${MAX_STAT})`, backgroundColor: `#EFCC18` }}
-                >Attack: {poke?.baseStats?.attack}</div>
+                ><span>Attack {poke?.baseStats?.attack}</span></div>
                 <div className="stat-bar"
                     style={{ width: `calc(100% * ${poke?.baseStats?.defense} / ${MAX_STAT})`, backgroundColor: `#E86412` }}
-                >Defense: {poke?.baseStats?.defense}</div>
+                ><span>Defense {poke?.baseStats?.defense}</span></div>
                 <div className="stat-bar"
                     style={{ width: `calc(100% * ${poke?.baseStats?.specialAttack} / ${MAX_STAT})`, backgroundColor: `#14C3F1` }}
-                >Special Attack: {poke?.baseStats?.specialAttack}</div>
+                ><span>Sp Attack {poke?.baseStats?.specialAttack}</span></div>
                 <div className="stat-bar"
                     style={{ width: `calc(100% * ${poke?.baseStats?.specialDefense} / ${MAX_STAT})`, backgroundColor: `#4A6ADF` }}
-                >Special Defense: {poke?.baseStats?.specialDefense}</div>
+                ><span>Sp Defense {poke?.baseStats?.specialDefense}</span></div>
                 <div className="stat-bar"
                     style={{ width: `calc(100% * ${poke?.baseStats?.speed} / ${MAX_STAT})`, backgroundColor: `#D51DAD` }}
-                >Speed: {poke?.baseStats?.speed}</div>
+                ><span>Speed {poke?.baseStats?.speed}</span></div>
             </div>
         </div>
     )
