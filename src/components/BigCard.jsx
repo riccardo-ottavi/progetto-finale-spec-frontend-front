@@ -2,13 +2,14 @@ import { useContext } from "react";
 import { GlobalContext } from "../contexts/PokeContext";
 
 export default function BigCard({ poke }) {
+    /*TODO: estrai da qua i colori delle statistiche e centralizza */
 
     const { isFavorite, favorites, addFavorite, removeFavorite } = useContext(GlobalContext)
 
     //valore massimo raggiungibile in pokemon dalla singola statistica base (standard) 
     const MAX_STAT = 255;
 
-    {/**Probabilmente centralizzabile (sata anche in ListCard) */}
+    {/**Probabilmente centralizzabile (sata anche in ListCard) */ }
     function toggleFavorite() {
         if (!favorites?.includes(poke?.id)) {
             addFavorite(poke?.id)
@@ -24,7 +25,10 @@ export default function BigCard({ poke }) {
 
             <div className="poke-infos">
                 <h1 className="poke-name">{poke?.title} </h1>
-                <h3>{poke?.category}</h3>
+                <div className="role-box">
+                    <p className="cell">{poke?.category}</p>
+                    <img src={`/images/${poke?.category?.toLowerCase().replace(" ", "_")}.png`} alt="" className="role-icon" />
+                </div>
                 <img src={isFavorite(poke?.id) ? "/images/icons/heart-filled.svg" : "/images/icons/heart.svg"}
                     onClick={toggleFavorite}
                     className="fav-icon"
@@ -62,6 +66,18 @@ export default function BigCard({ poke }) {
                 <div className="stat-bar"
                     style={{ width: `calc(100% * ${poke?.baseStats?.speed} / ${MAX_STAT})`, backgroundColor: `#D51DAD` }}
                 ><span>Speed {poke?.baseStats?.speed}</span></div>
+
+
+                {/**TODO: aggiugngi totale base stats (reduce), metti in qualche modo in evidenza la statistica migliore e finisci di mettere i pulsanti 
+                 * nel comparatore e icone ruoli
+                 * 
+                 *
+                 * 
+                 * Domanda a Mauro: 1)Posso mettere il limite di preferiti a 6 per simulare la grandezza dei team pokemon?
+                 *                  2)Le immagini in lista sono una forzatura delle specifiche?
+                 *                  3)Deve essere responsive?
+                 * 
+                */}
             </div>
         </div>
     )

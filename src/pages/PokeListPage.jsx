@@ -12,6 +12,13 @@ export default function PokeListPage() {
 
     const sortIcon = sortOrder === 1 ? "↓" : "↑";
 
+    const roleIcons = {
+        "Attaccante Speciale": "/images/roles/attaccante-speciale.png",
+        "Attaccante Fisico": "/images/roles/attaccante-fisico.png",
+        "Difensore": "/images/roles/difensore.png",
+        "Attaccante Misto": "/images/roles/attaccante-misto.png",
+    };
+
     function handleCategoryChoice(e) {
         setSelectedCategory(e.target.value)
     }
@@ -63,8 +70,8 @@ export default function PokeListPage() {
                         >
                             Nome {sortBy === "title" && sortIcon}
                         </th>
-                        <th 
-                            className="cell" 
+                        <th
+                            className="cell"
                             onClick={() => handleSort("category")}
                         >
                             Ruolo {sortBy === "category" && sortIcon}

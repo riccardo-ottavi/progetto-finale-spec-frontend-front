@@ -38,16 +38,30 @@ tr a {
   background-color: white;
   min-width: 735px;
   border-radius: 10px;
+  position: relative;
+  height: 110px;
 }
 
-.small-card *{
-  text-align: center;
+.role-icon{
+  width: 50px;
+}
+
+.role-box{
+  display: flex;
+  position: relative;
+  
+  align-items: center;
+  padding-left: 10px;
 }
 
 .small-card img{
-  height: 130px;
   padding: 8px;
   max-width: 190px;
+}
+
+.small-sprite{
+  width: 10px;
+  height: 110px;
 }
 
 .big-card{
@@ -64,10 +78,11 @@ tr a {
 }
 
 .stat-bar{
-  border: 1px solid black;
+  border: 1px solid rgba(0, 0, 0, 0.541);
   height: 35px;
   display: flex;
   align-items: center;
+  border-radius: 5px;
 }
 
 .stats{
@@ -113,8 +128,6 @@ a{
   color: black;
 }
 
-
-
 .container{
   overflow-y: scroll;
   width: 50vw;
@@ -122,6 +135,7 @@ a{
   background-color: white;
   margin: 0 auto;
   margin-top: 5vh;
+  border-radius: 10px;
 }
 
 nav{
