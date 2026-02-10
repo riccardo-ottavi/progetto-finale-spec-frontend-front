@@ -14,27 +14,21 @@ export default function PokeListPage() {
         setSelectedCategory(e.target.value)
     }
 
-    function handleSort(e) {
-        setSortBy(e.target.value)
-    }
-
-    function handleSortOrder(e) {
-        if (e.target.value === "AZ") {
-            setSortOrder(1)
-        } else if (e.target.value === "ZA") {
-            setSortOrder(-1)
+    function handleSort(column) {
+        if (sortBy === column) {
+            setSortOrder(sortOrder * -1);
+        } else {
+            setSortBy(column);
+            setSortOrder(1);
         }
     }
 
     const sortedList = useMemo(() => {
-        {/** Filtra la lista per query e categoria */}
         const filteredList = pokeList?.filter((p) => p?.title?.toLowerCase().includes(query) && p?.category?.includes(selectedCategory))
-
         {/** Applica sortBy e sortOrder */}
         const sorted = [...filteredList].sort((a, b) =>
             sortOrder * a[sortBy].localeCompare(b[sortBy])
         )
-
         return sorted
     }, [query, selectedCategory, sortBy, sortOrder, pokeList])
 
@@ -52,25 +46,13 @@ export default function PokeListPage() {
                 <option value="Difensore">Difensore</option>
                 <option value="Difensore Speciale">Difensore Speciale</option>
             </select>
-
-            {/** Colonna di ordinamento*/}
-            <select value={sortBy} onChange={handleSort}>
-                <option value="title">Nome</option>
-                <option value="category">Ruolo</option>
-            </select>
-
-            {/** Crescente o decrescente*/}
-            <select onChange={handleSortOrder}>
-                <option value="AZ">AZ</option>
-                <option value="ZA">ZA</option>
-            </select>
-
+          
             {/** Lista */}
             <table>
                 <thead className="row">
                     <tr>
-                        <th className="cell">Nome</th>
-                        <th className="cell">Ruolo</th>   
+                        <th className="cell" onClick={() => handleSort("title")}>Nome</th>
+                        <th className="cell" onClick={() => handleSort("category")}>Ruolo</th>   
                     </tr>
                 </thead>
 
