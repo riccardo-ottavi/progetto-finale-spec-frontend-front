@@ -8,10 +8,8 @@ export default function FavoritesPage(){
 
     const getPokemonById = (id) => pokeList.find(p => p.id === id);
 
-    //recupera i dati (no dettaglio) a partire dai singoli id
     const favPokeList = favorites.map((favId) => (
-        //pokeList.find(p => p.id === favId)
-        getPokemonById(id)
+        getPokemonById(favId)
     ))
 
     return(

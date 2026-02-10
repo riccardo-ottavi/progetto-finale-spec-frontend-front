@@ -7,9 +7,9 @@ export default function BigCard({poke}) {
         <div className="big-card">
             
             <h1>{poke?.title} </h1>
-            <img src={`/images/icons/${poke?.primaryType?.toLowerCase()}.svg`} alt="" className="type-icon" />
+            <img src={`https://pokechart.weebly.com/uploads/1/3/7/0/13704287/${poke?.primaryType?.toLowerCase()}_orig.png`} alt="" className="type-icon" />
             {poke?.secondaryType && (
-                 <img src={`/images/icons/${poke?.secondaryType?.toLowerCase()}.svg`} alt="" className="type-icon"/>
+                <img src={`https://pokechart.weebly.com/uploads/1/3/7/0/13704287/${poke?.secondaryType?.toLowerCase()}_orig.png`} alt="" className="type-icon"/>
             )}
             <p>{poke?.category}</p>
             <p>{poke?.description}</p>
