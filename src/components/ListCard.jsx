@@ -7,6 +7,7 @@ const ListCard = React.memo(({ poke }) => {
 
     const { favorites, addFavorite, removeFavorite, isFavorite, placePokeInCompare, isSlotOccupiedByPokemon } = useContext(GlobalContext);
 
+    {/**Probabilmente centralizzabile (sata anche in BigCard) */}
     function toggleFavorite() {
         if (!favorites?.includes(poke.id)) {
             addFavorite(poke.id)

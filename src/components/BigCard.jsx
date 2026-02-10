@@ -1,16 +1,37 @@
+import { useContext } from "react";
+import { GlobalContext } from "../contexts/PokeContext";
+
 export default function BigCard({ poke }) {
+
+    const { isFavorite, favorites, addFavorite, removeFavorite } = useContext(GlobalContext)
 
     //valore massimo raggiungibile in pokemon dalla singola statistica base (standard) 
     const MAX_STAT = 255;
+
+    {/**Probabilmente centralizzabile (sata anche in ListCard) */}
+    function toggleFavorite() {
+        if (!favorites?.includes(poke?.id)) {
+            addFavorite(poke?.id)
+            console.log(favorites)
+        } else {
+            removeFavorite(poke?.id)
+            console.log(favorites)
+        }
+    }
 
     return (
         <div className="big-card">
 
             <div className="poke-infos">
-                <h1 className="poke-name">{poke?.title} </h1>   
+                <h1 className="poke-name">{poke?.title} </h1>
                 <h3>{poke?.category}</h3>
+                <img src={isFavorite(poke?.id) ? "/images/icons/heart-filled.svg" : "/images/icons/heart.svg"}
+                    onClick={toggleFavorite}
+                    className="fav-icon"
+                />
+
             </div>
-            
+
             <div className="types-box">
                 <img src={`https://pokechart.weebly.com/uploads/1/3/7/0/13704287/${poke?.primaryType?.toLowerCase()}_orig.png`} alt="" className="type-icon" />
                 {poke?.secondaryType && (
