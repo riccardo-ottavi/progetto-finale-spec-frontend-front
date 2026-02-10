@@ -13,7 +13,7 @@ export default function BigCard({poke}) {
             )}
             <p>{poke?.category}</p>
             <p>{poke?.description}</p>
-            <img src={`/images/pokemonSprites/${poke?.title?.toLowerCase()}.png`} alt={poke?.title} className="big-poke-sprite"/>
+            <img src={poke?.image} alt={poke?.title} className="big-poke-sprite"/>
             <div className="stats">
                 <div className="stat-bar"
                     style={{ width: `calc(100% * ${poke?.baseStats?.hp} / ${MAX_STAT})`, backgroundColor: `#69DC12` }}

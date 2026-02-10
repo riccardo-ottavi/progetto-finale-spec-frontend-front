@@ -22,7 +22,7 @@ const ListCard = React.memo(({ poke }) => {
         <tr>
             <div className="small-card">
                 <Link to={`/pokemons/${poke.id}`}>
-                    <img src={`/images/pokemonSprites/${poke.title.toLowerCase()}.png`} alt={poke.title} className="cell" />
+                    <img src={`https://img.pokemondb.net/artwork/large/${poke?.title.toLowerCase()}.jpg`} alt={poke.title} className="cell" />
                     <td className="cell">{poke.title}</td>
                     <td className="cell">{poke.category}</td>
                 </Link>
