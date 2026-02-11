@@ -1,10 +1,10 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { GlobalContext } from "../contexts/PokeContext";
 
 export default function BigCard({ poke }) {
     /*TODO: estrai da qua i colori delle statistiche e centralizza */
 
-    const { isFavorite, favorites, addFavorite, removeFavorite } = useContext(GlobalContext)
+    const { isFavorite, favorites, addFavorite, removeFavorite , isSlotOccupiedByPokemon, placePokeInCompare} = useContext(GlobalContext)
 
     //valore massimo raggiungibile in pokemon dalla singola statistica base (standard) 
     const MAX_STAT = 255;
@@ -37,7 +37,10 @@ export default function BigCard({ poke }) {
                     onClick={toggleFavorite}
                     className="fav-icon"
                 />
-
+                <img alt="" className="fav-icon"
+                        src={isSlotOccupiedByPokemon(poke.id, 1) ? "/images/icons/b-solid-yellow.svg" : "/images/icons/b-solid-full.svg"}
+                        onClick={() => placePokeInCompare(null, 1)}
+                />
             </div>
 
             <div className="types-box">
