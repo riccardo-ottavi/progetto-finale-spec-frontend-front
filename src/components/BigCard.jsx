@@ -3,7 +3,7 @@ import { GlobalContext } from "../contexts/PokeContext";
 
 export default function BigCard({ poke }) {
 
-    const { isFavorite, favorites, addFavorite, removeFavorite, isSlotOccupiedByPokemon, placePokeInCompare, duoToCompare, toggleFavorite } = useContext(GlobalContext)
+    const { isFavorite, isSlotOccupiedByPokemon, toggleFavorite, toggleSlot } = useContext(GlobalContext)
 
     //valore massimo raggiungibile in pokemon dalla singola statistica base (standard) 
     const MAX_STAT = 255;
@@ -35,24 +35,12 @@ export default function BigCard({ poke }) {
                 <div className="big-card-icons">
                     <img
                         src={isSlotOccupiedByPokemon(poke.id, 0) ? "/images/icons/a-solid-full-blu.svg" : "/images/icons/a-solid-full.svg"}
-                        onClick={() => {
-                            if (isSlotOccupiedByPokemon(poke.id, 0)) {
-                                placePokeInCompare(null, 0);
-                            } else {
-                                placePokeInCompare(poke.id, 0);
-                            }
-                        }}
+                        onClick={() => {toggleSlot(poke.id, 0)}}
                     />
                     <img src="/images/icons/scale-balanced-solid-full.svg" alt="compare-icon" className="scale-icon" />
                     <img
                         src={isSlotOccupiedByPokemon(poke.id, 1) ? "/images/icons/b-solid-full-blu.svg" : "/images/icons/b-solid-full.svg"}
-                        onClick={() => {
-                            if (isSlotOccupiedByPokemon(poke.id, 1)) {
-                                placePokeInCompare(null, 1);
-                            } else {
-                                placePokeInCompare(poke.id, 1);
-                            }
-                        }}
+                        onClick={() => {toggleSlot(poke.id, 1)}} 
                     />
 
                     <img src={isFavorite(poke.id) ? "/images/icons/heart-filled.svg" : "/images/icons/heart.svg"}

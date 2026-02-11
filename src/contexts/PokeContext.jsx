@@ -15,7 +15,7 @@ export function GlobalProvider({ children }) {
         fetchPokeList()
     }, [])
 
-    {/*--------FUNZIONI FETCH---------*/}
+    {/*--------FUNZIONI FETCH---------*/ }
 
     async function fetchPokeList() {
         const pokeRes = await fetch(`${API_URL}/pokemons`)
@@ -30,7 +30,7 @@ export function GlobalProvider({ children }) {
         return pokeData.pokemon
     }
 
-    {/*--------FUNZIONI PREFERITI---------*/}
+    {/*--------FUNZIONI PREFERITI---------*/ }
 
     function addFavorite(pokeId) {
         setFavorites(prev => [...prev, pokeId])
@@ -44,7 +44,23 @@ export function GlobalProvider({ children }) {
         return favorites.includes(characterId);
     };
 
-    {/*--------FUNZIONI CONFRONTO---------*/}
+    function toggleFavorite(pokeId) {
+        if (!favorites?.includes(pokeId)) {
+            addFavorite(pokeId);
+        } else {
+            removeFavorite(pokeId);
+        }
+    }
+
+    function toggleSlot(pokeId, place) {
+        if (isSlotOccupiedByPokemon(pokeId, place)) {
+            placePokeInCompare(null, place);
+        } else {
+            placePokeInCompare(pokeId, place);
+        }
+    }
+
+    {/*--------FUNZIONI CONFRONTO---------*/ }
 
     function placePokeInCompare(pokeId, place) {
         setDuoToCompare(prev => {
@@ -56,14 +72,6 @@ export function GlobalProvider({ children }) {
 
     function isSlotOccupiedByPokemon(pokeId, place) {
         return (duoToCompare[place] === pokeId)
-    }
-
-    function toggleFavorite(pokeId) {
-        if (!favorites?.includes(pokeId)) {
-            addFavorite(pokeId);
-        } else {
-            removeFavorite(pokeId);
-        }
     }
 
 
@@ -84,7 +92,8 @@ export function GlobalProvider({ children }) {
                 compareDetails,
                 setCompareDetails,
                 isSlotOccupiedByPokemon,
-                toggleFavorite
+                toggleFavorite,
+                toggleSlot
             }}
         >
             {children}

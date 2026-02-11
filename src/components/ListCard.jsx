@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const ListCard = React.memo(({ poke }) => {
 
-    const {isFavorite, placePokeInCompare, isSlotOccupiedByPokemon, toggleFavorite } = useContext(GlobalContext);
+    const {isFavorite, isSlotOccupiedByPokemon, toggleFavorite, toggleSlot } = useContext(GlobalContext);
 
 
     return (
@@ -27,25 +27,13 @@ const ListCard = React.memo(({ poke }) => {
                 <div className="icons cell" >
                     <img
                         src={isSlotOccupiedByPokemon(poke.id, 0) ? "/images/icons/a-solid-full-blu.svg" : "/images/icons/a-solid-full.svg"}
-                        onClick={() => {
-                            if (isSlotOccupiedByPokemon(poke.id, 0)) {
-                                placePokeInCompare(null, 0);
-                            } else {
-                                placePokeInCompare(poke.id, 0);
-                            }
-                        }}
+                        onClick={() => {toggleSlot(poke.id,0)}}
                         className="icon"
                     />
                     <img src="/images/icons/scale-balanced-solid-full.svg" alt="compare-icon" className="scale-icon"/>
                     <img alt=""
                         src={isSlotOccupiedByPokemon(poke.id, 1) ? "/images/icons/b-solid-full-blu.svg" : "/images/icons/b-solid-full.svg"}
-                        onClick={() => {
-                            if (isSlotOccupiedByPokemon(poke.id, 1)) {
-                                placePokeInCompare(null, 1);
-                            } else {
-                                placePokeInCompare(poke.id, 1);
-                            }
-                        }}
+                        onClick={() => {toggleSlot(poke.id,1)}}
                         className="icon"
                     />
 
