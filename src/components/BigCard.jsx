@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { GlobalContext } from "../contexts/PokeContext";
 
 export default function BigCard({ poke }) {
@@ -10,6 +10,7 @@ export default function BigCard({ poke }) {
     const MAX_STAT = 255;
 
     {/**Probabilmente centralizzabile (sata anche in ListCard) */ }
+    {/**TODO: ottimizza con React.memo*/}
     function toggleFavorite() {
         if (!favorites?.includes(poke?.id)) {
             addFavorite(poke?.id)
@@ -19,6 +20,9 @@ export default function BigCard({ poke }) {
             console.log(favorites)
         }
     }
+
+    
+  
 
     return (
         <div className="big-card">
@@ -66,6 +70,14 @@ export default function BigCard({ poke }) {
                 <div className="stat-bar"
                     style={{ width: `calc(100% * ${poke?.baseStats?.speed} / ${MAX_STAT})`, backgroundColor: `#D51DAD` }}
                 ><span>Speed {poke?.baseStats?.speed}</span></div>
+
+                
+                {poke?.baseStats && (
+                    <p>{
+                        Object.values(poke?.baseStats)
+                        .reduce((somma, valore) => somma + valore, 0)
+                    }</p>
+                )}
 
 
                 {/**TODO: aggiugngi totale base stats (reduce), metti in qualche modo in evidenza la statistica migliore e finisci di mettere i pulsanti 
