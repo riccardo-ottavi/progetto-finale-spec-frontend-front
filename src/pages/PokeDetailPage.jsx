@@ -2,7 +2,6 @@ import { useParams } from "react-router-dom"
 import { useContext, useEffect } from "react";
 import BigCard from "../components/BigCard";
 import { GlobalContext } from "../contexts/PokeContext";
-import { Link } from "react-router-dom";
 
 
 export default function PokeDetailPage() {
@@ -22,9 +21,11 @@ export default function PokeDetailPage() {
 
     return (
         <div className="detail-container">
-            <BigCard
-                poke={pokeDetail} 
-            />
+            {pokeDetail ? (
+            <BigCard poke={pokeDetail} />
+        ) : (
+            <p>Loading...</p>
+        )}
         </div>
         
     )
