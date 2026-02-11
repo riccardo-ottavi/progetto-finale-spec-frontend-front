@@ -216,6 +216,7 @@ nav a {
 
 h1{
   font-size: 40px;
+  color: #2b445c;
 }
 
 h3{
@@ -228,7 +229,7 @@ h3{
 .poke-infos{
   display: flex;
   align-items: center;
-  gap: 50px;
+  gap: 25px;
 }
 
 
