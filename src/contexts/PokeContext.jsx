@@ -58,6 +58,14 @@ export function GlobalProvider({ children }) {
         return (duoToCompare[place] === pokeId)
     }
 
+    function toggleFavorite(pokeId) {
+        if (!favorites?.includes(pokeId)) {
+            addFavorite(pokeId);
+        } else {
+            removeFavorite(pokeId);
+        }
+    }
+
 
     return (
         <GlobalContext.Provider
@@ -75,7 +83,8 @@ export function GlobalProvider({ children }) {
                 duoToCompare,
                 compareDetails,
                 setCompareDetails,
-                isSlotOccupiedByPokemon
+                isSlotOccupiedByPokemon,
+                toggleFavorite
             }}
         >
             {children}

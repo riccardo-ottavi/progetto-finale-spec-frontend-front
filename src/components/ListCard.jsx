@@ -5,18 +5,8 @@ import { Link } from "react-router-dom";
 
 const ListCard = React.memo(({ poke }) => {
 
-    const { favorites, addFavorite, removeFavorite, isFavorite, placePokeInCompare, isSlotOccupiedByPokemon } = useContext(GlobalContext);
+    const {isFavorite, placePokeInCompare, isSlotOccupiedByPokemon, toggleFavorite } = useContext(GlobalContext);
 
-    {/**Probabilmente centralizzabile (sata anche in BigCard) */ }
-    function toggleFavorite() {
-        if (!favorites?.includes(poke.id)) {
-            addFavorite(poke.id)
-            console.log(favorites)
-        } else {
-            removeFavorite(poke.id)
-            console.log(favorites)
-        }
-    }
 
     return (
 
@@ -27,7 +17,7 @@ const ListCard = React.memo(({ poke }) => {
                     <td className="cell"><strong>{poke.title}</strong></td>
                     <td>
                        <div className="role-box">
-                              <p className="cell">{poke.category}</p>                                           
+                              <strong className="cell">{poke.category}</strong>                                           
                               <img src={`/images/${poke?.category?.toLowerCase().replace(" ", "_")}.png`} alt="" className="role-icon" />  
                         </div> 
                     </td>
@@ -36,17 +26,32 @@ const ListCard = React.memo(({ poke }) => {
                 </Link>
                 <div className="icons cell" >
                     <img
-                        src={isSlotOccupiedByPokemon(poke.id, 0) ? "/images/icons/a-solid-yellow.svg" : "/images/icons/a-solid-full.svg"}
-                        onClick={() => placePokeInCompare(poke.id, 0)}
+                        src={isSlotOccupiedByPokemon(poke.id, 0) ? "/images/icons/a-solid-full-blu.svg" : "/images/icons/a-solid-full.svg"}
+                        onClick={() => {
+                            if (isSlotOccupiedByPokemon(poke.id, 0)) {
+                                placePokeInCompare(null, 0);
+                            } else {
+                                placePokeInCompare(poke.id, 0);
+                            }
+                        }}
+                        className="icon"
                     />
-                    <img src="/images/icons/scale-balanced-solid-full.svg" alt="compare-icon" />
+                    <img src="/images/icons/scale-balanced-solid-full.svg" alt="compare-icon" className="scale-icon"/>
                     <img alt=""
-                        src={isSlotOccupiedByPokemon(poke.id, 1) ? "/images/icons/b-solid-yellow.svg" : "/images/icons/b-solid-full.svg"}
-                        onClick={() => placePokeInCompare(poke.id, 1)}
+                        src={isSlotOccupiedByPokemon(poke.id, 1) ? "/images/icons/b-solid-full-blu.svg" : "/images/icons/b-solid-full.svg"}
+                        onClick={() => {
+                            if (isSlotOccupiedByPokemon(poke.id, 1)) {
+                                placePokeInCompare(null, 1);
+                            } else {
+                                placePokeInCompare(poke.id, 1);
+                            }
+                        }}
+                        className="icon"
                     />
 
                     <img src={isFavorite(poke.id) ? "/images/icons/heart-filled.svg" : "/images/icons/heart.svg"}
-                        onClick={toggleFavorite}
+                        onClick={() => toggleFavorite(poke?.id)}
+                        className="icon"
                     />
                 </div>
             </div>

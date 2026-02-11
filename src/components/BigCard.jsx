@@ -3,30 +3,19 @@ import { GlobalContext } from "../contexts/PokeContext";
 
 export default function BigCard({ poke }) {
 
-    const { isFavorite, favorites, addFavorite, removeFavorite, isSlotOccupiedByPokemon, placePokeInCompare, duoToCompare } = useContext(GlobalContext)
+    const { isFavorite, favorites, addFavorite, removeFavorite, isSlotOccupiedByPokemon, placePokeInCompare, duoToCompare, toggleFavorite } = useContext(GlobalContext)
 
     //valore massimo raggiungibile in pokemon dalla singola statistica base (standard) 
     const MAX_STAT = 255;
 
     const statStyle = [
-        { key: "hp", label: "HP", color: "#69DC12" },
-        { key: "attack", label: "Attack", color: "#EFCC18" },
-        { key: "defence", label: "Defence", color: "#E86412" },
-        { key: "specialAttack", label: "Sp Attack", color: "#14C3F1" },
-        { key: "specialDefence", label: "Sp Defence", color: "#4A6ADF" },
-        { key: "speed", label: "Speed", color: "#D51DAD" },
+        { key: "hp", label: "HP: ", color: "#69DC12" },
+        { key: "attack", label: "Attack: ", color: "#EFCC18" },
+        { key: "defence", label: "Defence: ", color: "#E86412" },
+        { key: "specialAttack", label: "Sp Attack: ", color: "#14C3F1" },
+        { key: "specialDefence", label: "Sp Defence: ", color: "#4A6ADF" },
+        { key: "speed", label: "Speed: ", color: "#D51DAD" },
     ];
-
-    {/**TODO: Probabilmente centralizzabile (usata anche in ListCard) */ }
-    function toggleFavorite() {
-        if (!favorites?.includes(poke?.id)) {
-            addFavorite(poke?.id);
-            console.log(favorites);
-        } else {
-            removeFavorite(poke?.id);
-            console.log(favorites);
-        }
-    }
 
     function isMaxStat(pokeStats, statName) {
         const stats = Object.values(pokeStats);
@@ -37,7 +26,6 @@ export default function BigCard({ poke }) {
 
     return (
         <div className="big-card">
-
             <div className="poke-infos">
                 <h1 className="poke-name">{poke?.title} </h1>
                 <div className="role-box">
@@ -45,19 +33,30 @@ export default function BigCard({ poke }) {
                     <img src={`/images/${poke?.category?.toLowerCase().replace(" ", "_")}.png`} alt="" className="role-icon" />
                 </div>
                 <div className="big-card-icons">
-                    <img src={isFavorite(poke?.id) ? "/images/icons/heart-filled.svg" : "/images/icons/heart.svg"}
-                        onClick={toggleFavorite}
-                        className="fav-icon"
+                    <img
+                        src={isSlotOccupiedByPokemon(poke.id, 0) ? "/images/icons/a-solid-full-blu.svg" : "/images/icons/a-solid-full.svg"}
+                        onClick={() => {
+                            if (isSlotOccupiedByPokemon(poke.id, 0)) {
+                                placePokeInCompare(null, 0);
+                            } else {
+                                placePokeInCompare(poke.id, 0);
+                            }
+                        }}
                     />
-                    <img alt=""
-                        className="empty-slot-icon"
-                        src={isSlotOccupiedByPokemon(poke?.id, 0) ? "/images/icons/a-solid-yellow.svg" : ""}
-                        onClick={() => placePokeInCompare(null, 0)}
+                    <img src="/images/icons/scale-balanced-solid-full.svg" alt="compare-icon" className="scale-icon" />
+                    <img
+                        src={isSlotOccupiedByPokemon(poke.id, 1) ? "/images/icons/b-solid-full-blu.svg" : "/images/icons/b-solid-full.svg"}
+                        onClick={() => {
+                            if (isSlotOccupiedByPokemon(poke.id, 1)) {
+                                placePokeInCompare(null, 1);
+                            } else {
+                                placePokeInCompare(poke.id, 1);
+                            }
+                        }}
                     />
-                    <img alt=""
-                        className="empty-slot-icon"
-                        src={isSlotOccupiedByPokemon(poke?.id, 1) ? "/images/icons/b-solid-yellow.svg" : ""}
-                        onClick={() => placePokeInCompare(null, 1)}
+
+                    <img src={isFavorite(poke.id) ? "/images/icons/heart-filled.svg" : "/images/icons/heart.svg"}
+                        onClick={() => toggleFavorite(poke?.id)}
                     />
                 </div>
             </div>
@@ -75,11 +74,11 @@ export default function BigCard({ poke }) {
             <img src={poke?.image} alt={poke?.title} className="big-poke-sprite" />
             <div className="stats">
                 {statStyle.map(stat => {
-                    const value = poke?.baseStats?.[stat.key] || 0;
+                    const value = poke?.baseStats?.[stat.key];
                     return (
                         <div
                             key={stat.key}
-                            className={`stat-bar ${isMaxStat(poke?.baseStats, stat.key) ? 'best-stat' : ''}`}
+                            className={`stat-bar`}
                             style={{
                                 width: `calc(100% * ${value} / ${MAX_STAT})`,
                                 backgroundColor: stat.color
