@@ -46,7 +46,6 @@ export function GlobalProvider({ children }) {
 
     {/*--------FUNZIONI CONFRONTO---------*/}
 
-    {/*Copia il duo e sostituisce lo slot richiesto*/}
     function placePokeInCompare(pokeId, place) {
         setDuoToCompare(prev => {
             const newDuo = [...prev];
@@ -55,8 +54,6 @@ export function GlobalProvider({ children }) {
         });
     }
 
-    {/*Dato un id e una posizione nel confronto, 
-    determina se il posto è occupato dal poke con quell'id*/}
     function isSlotOccupiedByPokemon(pokeId, place) {
         return (duoToCompare[place] === pokeId)
     }

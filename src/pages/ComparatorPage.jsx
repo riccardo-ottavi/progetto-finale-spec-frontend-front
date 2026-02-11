@@ -11,15 +11,12 @@ export default function ComparatorPage() {
         makeCompare();
     }, [duoToCompare]);
 
-    
-    //se il posto è vuoto: null (segnaposto)
     async function makeCompare() {
         const results = await Promise.all(
             duoToCompare.map(id =>
                 id ? fetchPokeDetail(id) : null
             )
         );
-
         setCompareDetails(results);
     }
 

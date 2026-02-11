@@ -17,8 +17,7 @@ export default function BigCard({ poke }) {
         { key: "speed", label: "Speed", color: "#D51DAD" },
     ];
 
-    {/**Probabilmente centralizzabile (sata anche in ListCard) */ }
-    {/**TODO: ottimizza con React.memo*/ }
+    {/**TODO: Probabilmente centralizzabile (usata anche in ListCard) */ }
     function toggleFavorite() {
         if (!favorites?.includes(poke?.id)) {
             addFavorite(poke?.id);

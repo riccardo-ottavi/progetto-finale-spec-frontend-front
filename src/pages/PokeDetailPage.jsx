@@ -13,7 +13,6 @@ export default function PokeDetailPage() {
         loadDetail();
     }, [id]);
 
-    //recupera i dettagli a partire dall' id 
     async function loadDetail() {
         const detail = await fetchPokeDetail(id);
         setPokeDetail(detail);
