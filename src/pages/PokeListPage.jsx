@@ -12,13 +12,6 @@ export default function PokeListPage() {
 
     const sortIcon = sortOrder === 1 ? "↓" : "↑";
 
-    const roleIcons = {
-        "Attaccante Speciale": "/images/roles/attaccante-speciale.png",
-        "Attaccante Fisico": "/images/roles/attaccante-fisico.png",
-        "Difensore": "/images/roles/difensore.png",
-        "Attaccante Misto": "/images/roles/attaccante-misto.png",
-    };
-
     function handleCategoryChoice(e) {
         setSelectedCategory(e.target.value)
     }
@@ -34,7 +27,6 @@ export default function PokeListPage() {
 
     const sortedList = useMemo(() => {
         const filteredList = pokeList?.filter((p) => p?.title?.toLowerCase().includes(query) && p?.category?.includes(selectedCategory))
-        {/** Applica sortBy e sortOrder */ }
         const sorted = [...filteredList].sort((a, b) =>
             sortOrder * a[sortBy].localeCompare(b[sortBy])
         )

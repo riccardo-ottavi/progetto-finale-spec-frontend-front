@@ -17,7 +17,7 @@ function App() {
           <Routes>
             <Route path='/' element={<PokeListPage />} />
             <Route path='/pokemons/:id' element={<PokeDetailPage />} />
-            <Route path="/comparatore" element={<ComparatorPage />} />
+            <Route path="/comparator" element={<ComparatorPage />} />
             <Route path="/favorites" element={<FavoritesPage />} />
           </Routes>
         </BrowserRouter>

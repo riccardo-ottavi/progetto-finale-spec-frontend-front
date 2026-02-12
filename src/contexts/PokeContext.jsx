@@ -5,6 +5,7 @@ export const GlobalContext = createContext()
 
 export function GlobalProvider({ children }) {
 
+    //TODO: Wrappa con try catch dove necessario
     const [pokeList, setPokeList] = useState([]);
     const [favorites, setFavorites] = useState([]);
     const [duoToCompare, setDuoToCompare] = useState([null, null]);
@@ -16,7 +17,6 @@ export function GlobalProvider({ children }) {
     }, [])
 
     {/*--------FUNZIONI FETCH---------*/ }
-
     async function fetchPokeList() {
         const pokeRes = await fetch(`${API_URL}/pokemons`)
         const pokeData = await pokeRes.json()
@@ -31,7 +31,6 @@ export function GlobalProvider({ children }) {
     }
 
     {/*--------FUNZIONI PREFERITI---------*/ }
-
     function addFavorite(pokeId) {
         if(favorites.length === 6) return
         setFavorites(prev => [...prev, pokeId])
@@ -62,7 +61,6 @@ export function GlobalProvider({ children }) {
     }
 
     {/*--------FUNZIONI CONFRONTO---------*/ }
-
     function placePokeInCompare(pokeId, place) {
         setDuoToCompare(prev => {
             const newDuo = [...prev];
@@ -74,7 +72,6 @@ export function GlobalProvider({ children }) {
     function isSlotOccupiedByPokemon(pokeId, place) {
         return (duoToCompare[place] === pokeId)
     }
-
 
     return (
         <GlobalContext.Provider
