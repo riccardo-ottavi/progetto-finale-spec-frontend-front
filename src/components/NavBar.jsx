@@ -6,7 +6,7 @@ export default function NavBar() {
             <nav>
                 <NavLink to="/">Pokédex</NavLink>
                 <NavLink to="/comparator">Comparatore</NavLink> 
-                <NavLink to="/favorites">Preferiti</NavLink> 
+                <NavLink to="/favorites">Squadra</NavLink> 
             </nav>
         </div>
     )

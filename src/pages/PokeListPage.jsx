@@ -85,6 +85,13 @@ export default function PokeListPage() {
                 </thead>
 
                 <tbody>
+                    {sortedList.length === 0 && (
+                        <div className="zero-results">
+                            <h2>Nessun Risultato</h2>
+                            <img src="https://tse2.mm.bing.net/th/id/OIP.KPEtbYVbXg2yQUqU0i0nsgHaDt?rs=1&pid=ImgDetMain&o=7&rm=3" alt="" />
+                        </div>
+                    )
+                    }
                     {sortedList.map((poke) => (
                         <ListCard
                             key={poke.id}
