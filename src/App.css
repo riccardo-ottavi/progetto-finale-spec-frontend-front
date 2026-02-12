@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -16,16 +16,16 @@ tr a {
   gap: 40px;
 }
 
-.row{
+.row {
   height: 80px;
   border: 1px solid rgba(0, 0, 0, 0.425);
   display: flex;
   align-items: center;
   width: 100%;
   justify-content: space-evenly;
-  }
+}
 
-.cell{
+.cell {
   min-width: 120px;
 }
 
@@ -39,7 +39,7 @@ tr a {
   gap: 10px;
 }
 
-.small-card{
+.small-card {
   display: flex;
   width: 100%;
   align-items: center;
@@ -52,31 +52,32 @@ tr a {
   height: 130px;
 }
 
-.ball-icon{
-  height: 20px;;
+.ball-icon {
+  height: 20px;
+  ;
 }
 
-.role-icon{
+.role-icon {
   width: 50px;
 }
 
-.role-box{
+.role-box {
   display: flex;
   position: relative;
-  
+
   align-items: center;
 }
 
-.small-card img{
+.small-card img {
   max-width: 190px;
 }
 
-.small-sprite{
+.small-sprite {
   width: 10px;
   height: 110px;
 }
 
-.big-card{
+.big-card {
   background-color: white;
   display: flex;
   position: relative;
@@ -89,7 +90,7 @@ tr a {
   padding: 10px;
 }
 
-.stat-bar{
+.stat-bar {
   border: 1px solid rgba(0, 0, 0, 0.541);
   height: 35px;
   display: flex;
@@ -97,7 +98,7 @@ tr a {
   border-radius: 5px;
 }
 
-.stats{
+.stats {
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -106,25 +107,25 @@ tr a {
   width: 70%;
 }
 
-table{
+table {
   width: 100%;
 }
 
-input{
+input {
   border-radius: 10px;
 }
 
-.stat-bar span{
+.stat-bar span {
   font-size: 11px;
   font-weight: 600;
   margin-left: 5px;
 }
 
-select{
+select {
   border-radius: 10px;
 }
 
-.big-poke-sprite{
+.big-poke-sprite {
   display: flex;
   position: relative;
   max-height: 350px;
@@ -135,12 +136,12 @@ select{
   right: 30px;
 }
 
-a{
+a {
   text-decoration: none;
   color: black;
 }
 
-.container{
+.container {
   overflow-y: scroll;
   width: 50vw;
   height: 80vh;
@@ -150,10 +151,10 @@ a{
   border-radius: 10px;
 }
 
-nav{
+nav {
   width: 100vw;
   height: 10vh;
-  background-color: #EE1515; 
+  background-color: #EE1515;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -174,11 +175,11 @@ nav a {
 }
 
 
-.icon{
+.icon {
   width: 30px;
 }
 
-.comparator{
+.comparator {
   display: flex;
   margin-top: 5vh;
   justify-content: center;
@@ -191,7 +192,7 @@ nav a {
   font-weight: 800;
 }
 
-.types-box{
+.types-box {
   display: flex;
   position: absolute;
   top: 20px;
@@ -202,11 +203,7 @@ nav a {
   height: 30px;
 }
 
-.poke-name{
-  display: flex;
-}
-
-.dex-text{
+.dex-text {
   width: 40%;
   display: flex;
   flex-direction: column;
@@ -217,26 +214,26 @@ nav a {
   min-height: 100px;
 }
 
-h1{
+h1 {
   font-size: 40px;
   color: #2b445c;
 }
 
-h3{
+h3 {
   font-size: 18px;
   border-bottom: solid rgba(0, 0, 0, 0.205) 1px;
   padding: 5px;
   border-radius: 10px;
 }
 
-.poke-infos{
+.poke-infos {
   display: flex;
   align-items: center;
   gap: 25px;
 }
 
 
-.fav-icon{
+.fav-icon {
   display: flex;
   position: absolute;
   top: 3px;
@@ -244,7 +241,7 @@ h3{
   width: 30px;
 }
 
-.empty-slot-icon{
+.empty-slot-icon {
   display: flex;
   position: absolute;
   top: 3px;
@@ -252,115 +249,122 @@ h3{
   width: 30px;
 }
 
-.star-icon{
+.star-icon {
   width: 15px;
   margin-left: 10px;
   transform: translateY(3px);
 }
 
-.scale-icon{
+.scale-icon {
   width: 15px;
 }
 
 @media (max-width: 1024px) {
+
   /* small desktop */
-  .small-sprite{
+  .small-sprite {
     display: none;
   }
 
-  tr a{
+  tr a {
     gap: 0px
   }
 
- .role-text{
-  display: none;
- }
+  .role-text {
+    display: none;
+  }
 
- .small-card{
-  justify-content: start;
-  gap: 70px;
-  padding-left: 40px;
-  width: 30px;
- }
+  .small-card {
+    justify-content: start;
+    gap: 70px;
+    padding-left: 40px;
+    width: 30px;
+  }
 
- .row{
-  display: grid;
-  justify-content: start;
- }
+  .row {
+    display: grid;
+    justify-content: start;
+    padding-left: 100px;
+  }
 
- .big-card{
-  width: 450px;
-  font-size: 14px;
+  .big-card {
+    width: 450px;
+    font-size: 14px;
+    height: 430px;
+  }
 
- }
+  .dex-text {
+    width: 100%;
+  }
 
- .dex-text{
-  width: 100%;
- }
+  .stat-bar {
+    height: 25px;
+  }
 
- .stat-bar{
-  height: 25px;
- }
+  .big-poke-sprite {
+    height: 200px;
+  }
 
- .big-poke-sprite{
-  height: 230px;
- }
+  .big-card .role-text {
+    display: none;
+  }
 
- .big-card .role-text{
-  display: none;
-}
+  .type-icon {
+    height: 20px
+  }
 
-.type-icon{
-  height: 20px
-};
+  ;
 
-.poke-name{
-  font-size: 20px;
-}
+  .poke-name {
+    font-size: 20px;
+  }
 
-h1{
-  font-size: 20px;
-}
+  h1 {
+    font-size: 20px;
+  }
 
 }
 
 @media (max-width: 768px) {
+
   /* mobile */
-  .role-icon{
+  .role-icon {
     display: none;
   }
 
+  .small-card {
+    gap: 10px;
+    padding-left: 30px;
+  }
 
+  .big-card {
+    width: 300px;
+    height: 400px;
+  }
 
-.small-card{
-  gap: 10px;
-  padding-left: 30px;
-}
+  .big-card .big-poke-sprite {
+    height: 120px;
+    margin-bottom: 20px;
+  }
 
-.big-card{
-  width: 300px;
-  height: 400px;
-}
+  .stat-bar * {
+    font-size: 1px;
+  }
 
-.big-card .big-poke-sprite{
-  height: 120px;
-  margin-bottom: 20px;
-}
+  .poke-infos {
+    gap: 0px
+  }
 
-.stat-bar *{
-  font-size: 1px;
-}
+  .big-card .poke-name {
+    display: none
+  }
 
-.poke-infos{
-  gap: 0px
-}
+  .big-card-icons {
+    margin-top: 10px;
+  }
 
-.big-card .poke-name{
-  display: none
-}
-
-.big-card-icons{
-  margin-top: 10px;
-}
+  .row {
+    padding-left: 0px;
+  }
 
 }
