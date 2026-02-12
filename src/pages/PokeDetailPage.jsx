@@ -3,7 +3,6 @@ import { useContext, useEffect } from "react";
 import BigCard from "../components/BigCard";
 import { GlobalContext } from "../contexts/PokeContext";
 
-
 export default function PokeDetailPage() {
 
     const { id } = useParams()

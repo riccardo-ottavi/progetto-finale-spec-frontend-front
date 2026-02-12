@@ -13,7 +13,6 @@ export default function FavoritesPage(){
     ))
 
     const emptyBallsNumb = 6 - favPokeList.length;
-
     const emptyBalls = Array.from({ length: emptyBallsNumb });
 
     return(

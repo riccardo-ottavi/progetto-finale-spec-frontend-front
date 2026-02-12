@@ -52,14 +52,6 @@ export function GlobalProvider({ children }) {
         }
     }
 
-    function toggleSlot(pokeId, place) {
-        if (isSlotOccupiedByPokemon(pokeId, place)) {
-            placePokeInCompare(null, place);
-        } else {
-            placePokeInCompare(pokeId, place);
-        }
-    }
-
     {/*--------FUNZIONI CONFRONTO---------*/ }
     function placePokeInCompare(pokeId, place) {
         setDuoToCompare(prev => {
@@ -71,6 +63,14 @@ export function GlobalProvider({ children }) {
 
     function isSlotOccupiedByPokemon(pokeId, place) {
         return (duoToCompare[place] === pokeId)
+    } 
+
+    function toggleSlot(pokeId, place) {
+        if (isSlotOccupiedByPokemon(pokeId, place)) {
+            placePokeInCompare(null, place);
+        } else {
+            placePokeInCompare(pokeId, place);
+        }
     }
 
     return (
