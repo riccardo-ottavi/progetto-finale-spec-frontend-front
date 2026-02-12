@@ -147,9 +147,8 @@ a{
 }
 
 nav{
-  width: 100%;
+  width: 100vw;
   height: 10vh;
-  width: 100%;
   background-color: #EE1515; 
   display: flex;
   justify-content: center;
@@ -257,4 +256,107 @@ h3{
 
 .scale-icon{
   width: 15px;
+}
+
+@media (max-width: 1024px) {
+  /* small desktop */
+  .small-sprite{
+    display: none;
+  }
+
+  tr a{
+    gap: 0px
+  }
+
+ .role-text{
+  display: none;
+ }
+
+ .small-card{
+  justify-content: start;
+  gap: 70px;
+  padding-left: 40px;
+  width: 30px;
+ }
+
+ .row{
+  display: grid;
+  justify-content: start;
+ }
+
+ .big-card{
+  width: 450px;
+  font-size: 14px;
+
+ }
+
+ .dex-text{
+  width: 100%;
+ }
+
+ .stat-bar{
+  height: 25px;
+ }
+
+ .big-poke-sprite{
+  height: 230px;
+ }
+
+ .big-card .role-text{
+  display: none;
+}
+
+.type-icon{
+  height: 20px
+};
+
+.poke-name{
+  font-size: 20px;
+}
+
+h1{
+  font-size: 20px;
+}
+
+}
+
+@media (max-width: 768px) {
+  /* mobile */
+  .role-icon{
+    display: none;
+  }
+
+
+
+.small-card{
+  gap: 10px;
+  padding-left: 30px;
+}
+
+.big-card{
+  width: 300px;
+  height: 400px;
+}
+
+.big-card .big-poke-sprite{
+  height: 120px;
+  margin-bottom: 20px;
+}
+
+.stat-bar *{
+  font-size: 1px;
+}
+
+.poke-infos{
+  gap: 0px
+}
+
+.big-card .poke-name{
+  display: none
+}
+
+.big-card-icons{
+  margin-top: 10px;
+}
+
 }

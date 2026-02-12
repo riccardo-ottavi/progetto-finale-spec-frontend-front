@@ -29,7 +29,7 @@ export default function BigCard({ poke }) {
             <div className="poke-infos">
                 <h1 className="poke-name">{poke?.title} </h1>
                 <div className="role-box">
-                    <p className="cell">{poke?.category}</p>
+                    <p className="cell role-text">{poke?.category}</p>
                     <img src={`/images/${poke?.category?.toLowerCase().replace(" ", "_")}.png`} alt="" className="role-icon" />
                 </div>
                 <div className="big-card-icons">

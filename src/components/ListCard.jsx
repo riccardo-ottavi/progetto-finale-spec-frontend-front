@@ -16,7 +16,7 @@ const ListCard = React.memo(({ poke }) => {
                     <td className="cell"><strong>{poke.title}</strong></td>
                     <td>
                        <div className="role-box">
-                              <strong className="cell">{poke.category}</strong>                                           
+                              <strong className="cell role-text">{poke.category}</strong>                                           
                               <img src={`/images/${poke?.category?.toLowerCase().replace(" ", "_")}.png`} alt="" className="role-icon" />  
                         </div> 
                     </td>
