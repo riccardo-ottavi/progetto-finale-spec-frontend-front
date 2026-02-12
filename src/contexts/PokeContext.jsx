@@ -33,6 +33,7 @@ export function GlobalProvider({ children }) {
     {/*--------FUNZIONI PREFERITI---------*/ }
 
     function addFavorite(pokeId) {
+        if(favorites.length === 6) return
         setFavorites(prev => [...prev, pokeId])
     }
 
