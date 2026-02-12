@@ -58,7 +58,7 @@ export default function PokeListPage() {
                         onChange={(e) => debouncedSearch(e.target.value)}
                         placeholder="Cerca..." />
 
-                    {/** Filtra categoria */}
+                    {/** Filtra/ordina categoria e nome */}
                     <select value={selectedCategory} onChange={handleCategoryChoice}>
                         <option value="">Tutti</option>
                         <option value="Attaccante Fisico">Attaccante Fisico</option>

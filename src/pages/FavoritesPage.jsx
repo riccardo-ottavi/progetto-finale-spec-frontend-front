@@ -18,7 +18,7 @@ export default function FavoritesPage(){
     return(
         <div className="container">
         <h2>Lista Preferiti</h2>
-            {favPokeList.map((_, i) => (
+            {favPokeList?.map((_, i) => (
                 <img
                     key={i}
                     src="/images/icons/ball-icon.png"
@@ -27,7 +27,7 @@ export default function FavoritesPage(){
                 />
             ))}
 
-            {emptyBalls.map((_, i) => (
+            {emptyBalls?.map((_, i) => (
                 <img
                     key={i}
                     src="/images/icons/ball-icon-empty.png"
@@ -37,7 +37,7 @@ export default function FavoritesPage(){
             ))}
             
             {favPokeList?.map((p) => (
-                <div key={p.id}>
+                <div key={p?.id}>
                     <ListCard 
                         poke={p}
                     />

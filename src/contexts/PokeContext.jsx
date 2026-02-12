@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from "react";
+import useStorage from "../hooks/useStorage";
 const API_URL = import.meta.env.VITE_API_URL;
 
 export const GlobalContext = createContext()
@@ -7,7 +8,7 @@ export function GlobalProvider({ children }) {
 
     //TODO: Wrappa con try catch dove necessario
     const [pokeList, setPokeList] = useState([]);
-    const [favorites, setFavorites] = useState([]);
+    const [favorites, setFavorites] = useStorage("favorites",[]);
     const [duoToCompare, setDuoToCompare] = useState([null, null]);
     const [pokeDetail, setPokeDetail] = useState(null);
     const [compareDetails, setCompareDetails] = useState([null, null]);
