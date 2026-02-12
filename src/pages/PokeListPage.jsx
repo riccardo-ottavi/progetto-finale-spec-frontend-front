@@ -1,4 +1,4 @@
-import { useContext, useState, useMemo } from "react"
+import { useContext, useState, useMemo, useCallback } from "react"
 import { GlobalContext } from "../contexts/PokeContext"
 import ListCard from "../components/ListCard";
 
@@ -25,6 +25,20 @@ export default function PokeListPage() {
         }
     }
 
+    function debounce(callback, delay){
+        let timer;
+        return (value) => {
+            clearTimeout(timer);
+            timer = setTimeout(() => {
+                callback(value);
+            },delay)
+        };
+    }
+
+    const debouncedSearch = useCallback(
+        debounce(setQuery, 500) 
+    ,[]);
+
     const sortedList = useMemo(() => {
         const filteredList = pokeList?.filter((p) => p?.title?.toLowerCase().includes(query) && p?.category?.includes(selectedCategory))
         const sorted = [...filteredList].sort((a, b) =>
@@ -35,15 +49,13 @@ export default function PokeListPage() {
 
     return (
         <div className="container">
-
-
             {/** Lista */}
             <table>
                 <thead className="row">
                     {/** Barra di ricerca */}
                     <input
                         type="text"
-                        onChange={(e) => setQuery(e.target.value)}
+                        onChange={(e) => debouncedSearch(e.target.value)}
                         placeholder="Cerca..." />
 
                     {/** Filtra categoria */}
