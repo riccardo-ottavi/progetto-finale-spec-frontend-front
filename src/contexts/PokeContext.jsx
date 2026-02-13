@@ -6,7 +6,6 @@ export const GlobalContext = createContext()
 
 export function GlobalProvider({ children }) {
 
-    //TODO: Wrappa con try catch dove necessario
     const [pokeList, setPokeList] = useState([]);
     const [favorites, setFavorites] = useStorage("favorites",[]);
     const [duoToCompare, setDuoToCompare] = useState([null, null]);
@@ -19,17 +18,36 @@ export function GlobalProvider({ children }) {
 
     {/*--------FUNZIONI FETCH---------*/ }
     async function fetchPokeList() {
-        const pokeRes = await fetch(`${API_URL}/pokemons`)
-        const pokeData = await pokeRes.json()
-        setPokeList(pokeData)
-    }
+    try {
+        const pokeRes = await fetch(`${API_URL}/pokemons`);
 
-    async function fetchPokeDetail(pokeId) {
-        const pokeRes = await fetch(`${API_URL}/pokemons/${pokeId}`)
-        const pokeData = await pokeRes.json()
-        console.log("RISPOSTA API:", pokeData)
-        return pokeData.pokemon
+        if (!pokeRes.ok) {
+            throw new Error("Errore nella risposta API");
+        }
+
+        const pokeData = await pokeRes.json();
+        setPokeList(pokeData);
+
+    } catch (error) {
+        console.error("Errore fetchPokeList:", error);
     }
+}
+
+   async function fetchPokeDetail(pokeId) {
+    try {
+        const pokeRes = await fetch(`${API_URL}/pokemons/${pokeId}`);
+
+        if (!pokeRes.ok) {
+            throw new Error("Errore nella risposta API");
+        }
+
+        const pokeData = await pokeRes.json();
+        return pokeData.pokemon;
+
+    } catch (error) {
+        console.error("Errore fetchPokeDetail:", error);
+    }
+}
 
     {/*--------FUNZIONI PREFERITI---------*/ }
     function addFavorite(pokeId) {
