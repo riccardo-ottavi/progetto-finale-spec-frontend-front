@@ -25,22 +25,24 @@ export default function PokeListPage() {
         }
     }
 
-    function debounce(callback, delay){
+    function debounce(callback, delay) {
         let timer;
         return (value) => {
             clearTimeout(timer);
             timer = setTimeout(() => {
                 callback(value);
-            },delay)
+            }, delay)
         };
     }
 
     const debouncedSearch = useCallback(
-        debounce(setQuery, 500) 
-    ,[]);
+        debounce(setQuery, 500)
+        , []);
 
     const sortedList = useMemo(() => {
-        const filteredList = pokeList?.filter((p) => p?.title?.toLowerCase().includes(query) && p?.category?.includes(selectedCategory))
+        const filteredList = pokeList?.filter((p) => p?.title?.toLowerCase()
+            .includes(query.toLowerCase()) &&
+            (selectedCategory === "" || p.category === selectedCategory))
         const sorted = [...filteredList].sort((a, b) =>
             sortOrder * a[sortBy].localeCompare(b[sortBy])
         )
@@ -84,9 +86,9 @@ export default function PokeListPage() {
                     {sortedList.length === 0 && (
                         <div className="zero-results">
                             <h2>Nessun Risultato</h2>
-                            <img 
-                                src="https://tse2.mm.bing.net/th/id/OIP.KPEtbYVbXg2yQUqU0i0nsgHaDt?rs=1&pid=ImgDetMain&o=7&rm=3" 
-                                alt="no-result" 
+                            <img
+                                src="https://tse2.mm.bing.net/th/id/OIP.KPEtbYVbXg2yQUqU0i0nsgHaDt?rs=1&pid=ImgDetMain&o=7&rm=3"
+                                alt="no-result"
                             />
                         </div>
                     )
