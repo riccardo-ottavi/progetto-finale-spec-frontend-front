@@ -1,0 +1,512 @@
+[
+  {
+    "title": "Charizard",
+    "category": "Attaccante Speciale",
+    "primaryType": "fire",
+    "secondaryType": "flying",
+    "attackType": "Speciale",
+    "baseStats": {
+      "hp": 78,
+      "attack": 84,
+      "defence": 78,
+      "specialAttack": 109,
+      "specialDefence": 85,
+      "speed": 100
+    },
+    "description": "Il Pokémon che sputa fuoco e vola con ali possenti, temuto in battaglia.",
+    "image": "https://img.pokemondb.net/artwork/large/charizard.jpg",
+    "id": 1,
+    "createdAt": "2026-02-04T11:37:34.784Z",
+    "updatedAt": "2026-02-10T10:10:10.301Z"
+  },
+  {
+    "title": "Arcanine",
+    "category": "Attaccante Fisico",
+    "primaryType": "fire",
+    "attackType": "Fisico",
+    "baseStats": {
+      "hp": 90,
+      "attack": 110,
+      "defence": 80,
+      "specialAttack": 100,
+      "specialDefence": 80,
+      "speed": 95
+    },
+    "description": "Un Pokémon leggendario dal pelo infuocato, noto per la sua velocità e potenza in battaglia.",
+    "image": "https://img.pokemondb.net/artwork/large/arcanine.jpg",
+    "id": 2,
+    "createdAt": "2026-02-04T12:07:25.951Z",
+    "updatedAt": "2026-02-10T10:10:40.863Z"
+  },
+  {
+    "title": "Jolteon",
+    "category": "Attaccante Speciale",
+    "primaryType": "electric",
+    "attackType": "Speciale",
+    "baseStats": {
+      "hp": 65,
+      "attack": 65,
+      "defence": 60,
+      "specialAttack": 110,
+      "specialDefence": 95,
+      "speed": 130
+    },
+    "description": "Un Pokémon fulmineo, agilissimo e capace di scagliare potenti attacchi elettrici.",
+    "image": "https://img.pokemondb.net/artwork/large/jolteon.jpg",
+    "id": 3,
+    "createdAt": "2026-02-04T12:07:42.451Z",
+    "updatedAt": "2026-02-10T10:11:46.607Z"
+  },
+  {
+    "title": "Alakazam",
+    "category": "Attaccante Speciale",
+    "primaryType": "psychic",
+    "attackType": "Speciale",
+    "baseStats": {
+      "hp": 55,
+      "attack": 50,
+      "defence": 45,
+      "specialAttack": 135,
+      "specialDefence": 95,
+      "speed": 120
+    },
+    "description": "Un Pokémon con poteri psichici straordinari, capace di pensare e agire a velocità incredibile.",
+    "image": "https://img.pokemondb.net/artwork/large/alakazam.jpg",
+    "id": 4,
+    "createdAt": "2026-02-04T12:38:58.919Z",
+    "updatedAt": "2026-02-10T10:12:00.868Z"
+  },
+  {
+    "title": "Machamp",
+    "category": "Attaccante Fisico",
+    "primaryType": "fighting",
+    "attackType": "Fisico",
+    "baseStats": {
+      "hp": 90,
+      "attack": 130,
+      "defence": 80,
+      "specialAttack": 65,
+      "specialDefence": 85,
+      "speed": 55
+    },
+    "description": "Potente Pokémon dalla forza straordinaria, capace di lanciare pugni a velocità supersonica.",
+    "image": "https://img.pokemondb.net/artwork/large/machamp.jpg",
+    "id": 5,
+    "createdAt": "2026-02-04T12:39:11.268Z",
+    "updatedAt": "2026-02-10T10:12:42.715Z"
+  },
+  {
+    "title": "Gyarados",
+    "category": "Attaccante Fisico",
+    "primaryType": "water",
+    "secondaryType": "flying",
+    "attackType": "Fisico",
+    "baseStats": {
+      "hp": 95,
+      "attack": 125,
+      "defence": 79,
+      "specialAttack": 60,
+      "specialDefence": 100,
+      "speed": 81
+    },
+    "description": "Un Pokémon leggendario e furioso, capace di distruggere città con la sua potenza.",
+    "image": "https://img.pokemondb.net/artwork/large/gyarados.jpg",
+    "id": 6,
+    "createdAt": "2026-02-04T12:39:22.901Z",
+    "updatedAt": "2026-02-10T10:13:05.253Z"
+  },
+  {
+    "title": "Gengar",
+    "category": "Attaccante Speciale",
+    "primaryType": "ghost",
+    "secondaryType": "poison",
+    "attackType": "Speciale",
+    "baseStats": {
+      "hp": 60,
+      "attack": 65,
+      "defence": 60,
+      "specialAttack": 130,
+      "specialDefence": 75,
+      "speed": 110
+    },
+    "description": "Spettro dispettoso, capace di muoversi tra le ombre e lanciare maledizioni.",
+    "image": "https://img.pokemondb.net/artwork/large/gengar.jpg",
+    "id": 8,
+    "createdAt": "2026-02-04T12:42:18.588Z",
+    "updatedAt": "2026-02-10T10:14:17.800Z"
+  },
+  {
+    "title": "Cloyster",
+    "category": "Difensore Misto",
+    "primaryType": "water",
+    "secondaryType": "ice",
+    "attackType": "Fisico",
+    "baseStats": {
+      "hp": 50,
+      "attack": 95,
+      "defence": 180,
+      "specialAttack": 85,
+      "specialDefence": 45,
+      "speed": 70
+    },
+    "description": "Protetto da un guscio di ghiaccio durissimo, lancia con precisione potenti attacchi.",
+    "image": "https://img.pokemondb.net/artwork/large/cloyster.jpg",
+    "id": 9,
+    "createdAt": "2026-02-04T12:42:38.236Z",
+    "updatedAt": "2026-02-11T13:22:36.704Z"
+  },
+  {
+    "title": "Onix",
+    "category": "Difensore Misto",
+    "primaryType": "rock",
+    "secondaryType": "ground",
+    "attackType": "Fisico",
+    "baseStats": {
+      "hp": 35,
+      "attack": 45,
+      "defence": 160,
+      "specialAttack": 30,
+      "specialDefence": 45,
+      "speed": 70
+    },
+    "description": "Serpente roccioso gigante, con una corazza quasi impenetrabile.",
+    "image": "https://img.pokemondb.net/artwork/large/onix.jpg",
+    "id": 10,
+    "createdAt": "2026-02-04T12:51:02.771Z",
+    "updatedAt": "2026-02-11T13:24:04.859Z"
+  },
+  {
+    "title": "Exeggutor",
+    "category": "Difensore Misto",
+    "primaryType": "grass",
+    "secondaryType": "psychic",
+    "attackType": "Speciale",
+    "baseStats": {
+      "hp": 95,
+      "attack": 95,
+      "defence": 85,
+      "specialAttack": 125,
+      "specialDefence": 75,
+      "speed": 55
+    },
+    "description": "Palmipede a tre teste, ogni testa può pensare e attaccare indipendentemente.",
+    "image": "https://img.pokemondb.net/artwork/large/exeggutor.jpg",
+    "id": 11,
+    "createdAt": "2026-02-04T12:51:31.659Z",
+    "updatedAt": "2026-02-11T13:22:57.525Z"
+  },
+  {
+    "title": "Pidgeot",
+    "category": "Attaccante Fisico",
+    "primaryType": "normal",
+    "secondaryType": "flying",
+    "attackType": "Fisico",
+    "baseStats": {
+      "hp": 83,
+      "attack": 80,
+      "defence": 75,
+      "specialAttack": 70,
+      "specialDefence": 70,
+      "speed": 101
+    },
+    "description": "Uccello rapido e agile, domina i cieli con incredibile velocità.",
+    "image": "https://img.pokemondb.net/artwork/large/pidgeot.jpg",
+    "id": 12,
+    "createdAt": "2026-02-04T12:51:47.587Z",
+    "updatedAt": "2026-02-10T10:16:34.978Z"
+  },
+  {
+    "title": "Lapras",
+    "category": "Difensore Misto",
+    "primaryType": "water",
+    "secondaryType": "ice",
+    "attackType": "Speciale",
+    "baseStats": {
+      "hp": 130,
+      "attack": 85,
+      "defence": 80,
+      "specialAttack": 85,
+      "specialDefence": 95,
+      "speed": 60
+    },
+    "description": "Creatura gentile e intelligente, spesso utilizzata per trasportare allenatori sul mare.",
+    "image": "https://img.pokemondb.net/artwork/large/lapras.jpg",
+    "id": 13,
+    "createdAt": "2026-02-04T12:52:02.136Z",
+    "updatedAt": "2026-02-11T13:23:16.972Z"
+  },
+  {
+    "title": "Nidoqueen",
+    "category": "Difensore Misto",
+    "primaryType": "poison",
+    "secondaryType": "ground",
+    "attackType": "Fisico",
+    "baseStats": {
+      "hp": 90,
+      "attack": 92,
+      "defence": 87,
+      "specialAttack": 75,
+      "specialDefence": 85,
+      "speed": 76
+    },
+    "description": "Combattente robusta, difende il suo territorio con grande determinazione.",
+    "image": "https://img.pokemondb.net/artwork/large/nidoqueen.jpg",
+    "id": 14,
+    "createdAt": "2026-02-04T12:52:13.723Z",
+    "updatedAt": "2026-02-11T13:23:30.394Z"
+  },
+  {
+    "title": "Clefable",
+    "category": "Difensore Misto",
+    "primaryType": "normal",
+    "attackType": "Speciale",
+    "baseStats": {
+      "hp": 95,
+      "attack": 70,
+      "defence": 73,
+      "specialAttack": 95,
+      "specialDefence": 90,
+      "speed": 60
+    },
+    "description": "Dolce e amichevole, ma può usare potenti magie per proteggersi.",
+    "image": "https://img.pokemondb.net/artwork/large/clefable.jpg",
+    "id": 15,
+    "createdAt": "2026-02-04T12:52:29.303Z",
+    "updatedAt": "2026-02-11T13:22:03.495Z"
+  },
+  {
+    "title": "Dragonite",
+    "category": "Attaccante Misto",
+    "primaryType": "dragon",
+    "secondaryType": "flying",
+    "attackType": "Fisico",
+    "baseStats": {
+      "hp": 91,
+      "attack": 134,
+      "defence": 95,
+      "specialAttack": 100,
+      "specialDefence": 100,
+      "speed": 80
+    },
+    "description": "Un Pokémon drago potente e gentile, capace di sorvolare oceani e devastare avversari con colpi fisici e speciali.",
+    "image": "https://img.pokemondb.net/artwork/large/dragonite.jpg",
+    "id": 17,
+    "createdAt": "2026-02-04T12:53:46.437Z",
+    "updatedAt": "2026-02-10T10:18:17.618Z"
+  },
+  {
+    "title": "Mewtwo",
+    "category": "Attaccante Speciale",
+    "primaryType": "psychic",
+    "attackType": "Speciale",
+    "baseStats": {
+      "hp": 106,
+      "attack": 110,
+      "defence": 90,
+      "specialAttack": 154,
+      "specialDefence": 90,
+      "speed": 130
+    },
+    "description": "Il Pokémon genetico più potente, creato per avere forza psichica suprema in battaglia.",
+    "image": "https://img.pokemondb.net/artwork/large/mewtwo.jpg",
+    "id": 18,
+    "createdAt": "2026-02-04T12:54:00.879Z",
+    "updatedAt": "2026-02-10T10:18:27.950Z"
+  },
+  {
+    "title": "Zapdos",
+    "category": "Attaccante Speciale",
+    "primaryType": "electric",
+    "secondaryType": "flying",
+    "attackType": "Speciale",
+    "baseStats": {
+      "hp": 90,
+      "attack": 90,
+      "defence": 85,
+      "specialAttack": 125,
+      "specialDefence": 90,
+      "speed": 100
+    },
+    "description": "Uno degli uccelli leggendari, potente con attacchi elettrici devastanti e incredibilmente veloce.",
+    "image": "https://img.pokemondb.net/artwork/large/zapdos.jpg",
+    "id": 19,
+    "createdAt": "2026-02-04T13:00:22.072Z",
+    "updatedAt": "2026-02-11T13:24:55.350Z"
+  },
+  {
+    "title": "Articuno",
+    "category": "Difensore Speciale",
+    "primaryType": "ice",
+    "secondaryType": "flying",
+    "attackType": "Speciale",
+    "baseStats": {
+      "hp": 90,
+      "attack": 85,
+      "defence": 100,
+      "specialAttack": 95,
+      "specialDefence": 125,
+      "speed": 85
+    },
+    "description": "Il leggendario uccello ghiaccio, capace di congelare il nemico con attacchi speciali precisi.",
+    "image": "https://img.pokemondb.net/artwork/large/articuno.jpg",
+    "id": 20,
+    "createdAt": "2026-02-04T13:00:33.746Z",
+    "updatedAt": "2026-02-10T10:19:11.900Z"
+  },
+  {
+    "title": "Moltres",
+    "category": "Attaccante Speciale",
+    "primaryType": "fire",
+    "secondaryType": "flying",
+    "attackType": "Speciale",
+    "baseStats": {
+      "hp": 90,
+      "attack": 100,
+      "defence": 90,
+      "specialAttack": 125,
+      "specialDefence": 85,
+      "speed": 90
+    },
+    "description": "Il leggendario uccello di fuoco, incandescente in battaglia, capace di devastare intere aree con attacchi speciali.",
+    "image": "https://img.pokemondb.net/artwork/large/moltres.jpg",
+    "id": 21,
+    "createdAt": "2026-02-04T13:00:45.073Z",
+    "updatedAt": "2026-02-10T10:19:43.774Z"
+  },
+  {
+    "title": "Marowak",
+    "category": "Difensore Fisico",
+    "primaryType": "ground",
+    "attackType": "Fisico",
+    "baseStats": {
+      "hp": 60,
+      "attack": 80,
+      "defence": 110,
+      "specialAttack": 50,
+      "specialDefence": 80,
+      "speed": 45
+    },
+    "description": "Difensore resistente che brandisce un osso come arma principale, molto robusto e difficile da sconfiggere in battaglia.",
+    "image": "https://img.pokemondb.net/artwork/large/marowak.jpg",
+    "id": 23,
+    "createdAt": "2026-02-04T13:03:52.724Z",
+    "updatedAt": "2026-02-10T10:20:09.725Z"
+  },
+  {
+    "title": "Starmie",
+    "category": "Attaccante Speciale",
+    "primaryType": "water",
+    "secondaryType": "psychic",
+    "attackType": "Speciale",
+    "baseStats": {
+      "hp": 60,
+      "attack": 75,
+      "defence": 85,
+      "specialAttack": 100,
+      "specialDefence": 85,
+      "speed": 115
+    },
+    "description": "Un Pokémon veloce e versatile, capace di potenti attacchi speciali sia di tipo Acqua che Psico.",
+    "image": "https://img.pokemondb.net/artwork/large/starmie.jpg",
+    "id": 24,
+    "createdAt": "2026-02-04T13:04:03.337Z",
+    "updatedAt": "2026-02-10T10:20:31.863Z"
+  },
+  {
+    "title": "Nidoking",
+    "category": "Attaccante Fisico",
+    "primaryType": "poison",
+    "secondaryType": "ground",
+    "attackType": "Fisico",
+    "baseStats": {
+      "hp": 81,
+      "attack": 102,
+      "defence": 77,
+      "specialAttack": 85,
+      "specialDefence": 75,
+      "speed": 85
+    },
+    "description": "Un potente Pokémon velenoso e terrestre, capace di colpi fisici devastanti con agilità sorprendente.",
+    "image": "https://img.pokemondb.net/artwork/large/nidoking.jpg",
+    "id": 25,
+    "createdAt": "2026-02-04T13:04:29.655Z",
+    "updatedAt": "2026-02-10T10:20:53.461Z"
+  },
+  {
+    "title": "Blastoise",
+    "category": "Difensore Speciale",
+    "attackType": "Fisico",
+    "primaryType": "water",
+    "baseStats": {
+      "hp": 79,
+      "attack": 83,
+      "defence": 100,
+      "specialAttack": 85,
+      "specialDefence": 105,
+      "speed": 78
+    },
+    "description": "La corazza di Blastoise è durissima e i suoi potenti cannoni d’acqua sparano con precisione letale.",
+    "image": "https://img.pokemondb.net/artwork/large/blastoise.jpg",
+    "id": 26,
+    "createdAt": "2026-02-04T13:08:40.373Z",
+    "updatedAt": "2026-02-10T10:21:03.714Z"
+  },
+  {
+    "title": "Venusaur",
+    "category": "Difensore Speciale",
+    "attackType": "Speciale",
+    "primaryType": "grass",
+    "secondaryType": "poison",
+    "baseStats": {
+      "hp": 80,
+      "attack": 82,
+      "defence": 83,
+      "specialAttack": 100,
+      "specialDefence": 100,
+      "speed": 80
+    },
+    "description": "Venusaur utilizza la grande pianta sulla sua schiena per assorbire la luce e scatenare attacchi devastanti.",
+    "image": "https://img.pokemondb.net/artwork/large/venusaur.jpg",
+    "id": 27,
+    "createdAt": "2026-02-04T13:08:52.419Z",
+    "updatedAt": "2026-02-11T13:25:23.541Z"
+  },
+  {
+    "title": "Pikachu",
+    "category": "Attaccante Speciale",
+    "attackType": "Speciale",
+    "primaryType": "electric",
+    "baseStats": {
+      "hp": 35,
+      "attack": 55,
+      "defence": 40,
+      "specialAttack": 50,
+      "specialDefence": 50,
+      "speed": 90
+    },
+    "description": "Il Pokémon simbolo di Kanto. Pikachu può generare potenti scariche elettriche per difendersi.",
+    "image": "https://img.pokemondb.net/artwork/large/pikachu.jpg",
+    "id": 28,
+    "createdAt": "2026-02-04T13:09:07.017Z",
+    "updatedAt": "2026-02-10T10:21:34.835Z"
+  },
+  {
+    "title": "Snorlax",
+    "category": "Difensore Speciale",
+    "primaryType": "normal",
+    "attackType": "Fisico",
+    "baseStats": {
+      "hp": 160,
+      "attack": 110,
+      "defence": 65,
+      "specialAttack": 65,
+      "specialDefence": 110,
+      "speed": 30
+    },
+    "description": "Gigante pigro ma incredibilmente resistente, può ingoiare tutto ciò che trova davanti.",
+    "image": "https://img.pokemondb.net/artwork/large/snorlax.jpg",
+    "id": 29,
+    "createdAt": "2026-02-10T10:43:40.469Z",
+    "updatedAt": "2026-02-11T13:24:44.016Z"
+  }
+]
