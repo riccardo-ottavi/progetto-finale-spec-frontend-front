@@ -22,7 +22,7 @@ export default function FavoritesPage(){
                 <img
                     key={i}
                     src="/images/icons/ball-icon.png"
-                    alt=""
+                    alt="pokeball icon"
                     className="ball-icon"
                 />
             ))}
@@ -31,7 +31,7 @@ export default function FavoritesPage(){
                 <img
                     key={i}
                     src="/images/icons/ball-icon-empty.png"
-                    alt=""
+                    alt="empty pokemon ball"
                     className="ball-icon empty"
                 />
             ))}

@@ -16,11 +16,11 @@ export default function PokeListPage() {
         setSelectedCategory(e.target.value)
     }
 
-    function handleSort(column) {
-        if (sortBy === column) {
+    function handleSort(newSortBy) {
+        if (sortBy === newSortBy) {
             setSortOrder(sortOrder * -1);
         } else {
-            setSortBy(column);
+            setSortBy(newSortBy);
             setSortOrder(1);
         }
     }
@@ -49,16 +49,12 @@ export default function PokeListPage() {
 
     return (
         <div className="container">
-            {/** Lista */}
             <table>
                 <thead className="row">
-                    {/** Barra di ricerca */}
                     <input
                         type="text"
                         onChange={(e) => debouncedSearch(e.target.value)}
                         placeholder="Cerca..." />
-
-                    {/** Filtra/ordina categoria e nome */}
                     <select value={selectedCategory} onChange={handleCategoryChoice}>
                         <option value="">Tutti</option>
                         <option value="Attaccante Fisico">Attaccante Fisico</option>
@@ -88,7 +84,10 @@ export default function PokeListPage() {
                     {sortedList.length === 0 && (
                         <div className="zero-results">
                             <h2>Nessun Risultato</h2>
-                            <img src="https://tse2.mm.bing.net/th/id/OIP.KPEtbYVbXg2yQUqU0i0nsgHaDt?rs=1&pid=ImgDetMain&o=7&rm=3" alt="" />
+                            <img 
+                                src="https://tse2.mm.bing.net/th/id/OIP.KPEtbYVbXg2yQUqU0i0nsgHaDt?rs=1&pid=ImgDetMain&o=7&rm=3" 
+                                alt="no-result" 
+                            />
                         </div>
                     )
                     }

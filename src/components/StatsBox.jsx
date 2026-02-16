@@ -41,7 +41,6 @@ export default function StatsBox( {poke} ){
                     );
                 })}
 
-                {/* Totale stats */}
                 {poke?.baseStats && (
                     <p>
                         Totale: {Object.values(poke?.baseStats).reduce((somma, valore) => somma + valore, 0)}

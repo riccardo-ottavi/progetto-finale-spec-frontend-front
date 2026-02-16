@@ -7,7 +7,7 @@ export const GlobalContext = createContext()
 export function GlobalProvider({ children }) {
 
     const [pokeList, setPokeList] = useState([]);
-    const [favorites, setFavorites] = useStorage("favorites",[]);
+    const [favorites, setFavorites] = useStorage("favorites", []);
     const [duoToCompare, setDuoToCompare] = useState([null, null]);
     const [pokeDetail, setPokeDetail] = useState(null);
     const [compareDetails, setCompareDetails] = useState([null, null]);
@@ -16,42 +16,40 @@ export function GlobalProvider({ children }) {
         fetchPokeList()
     }, [])
 
-    {/*--------FUNZIONI FETCH---------*/ }
     async function fetchPokeList() {
-    try {
-        const pokeRes = await fetch(`${API_URL}/pokemons`);
+        try {
+            const pokeRes = await fetch(`${API_URL}/pokemons`);
 
-        if (!pokeRes.ok) {
-            throw new Error("Errore nella risposta API");
+            if (!pokeRes.ok) {
+                throw new Error("Errore nella risposta API");
+            }
+
+            const pokeData = await pokeRes.json();
+            setPokeList(pokeData);
+
+        } catch (error) {
+            console.error("Errore fetchPokeList:", error);
         }
-
-        const pokeData = await pokeRes.json();
-        setPokeList(pokeData);
-
-    } catch (error) {
-        console.error("Errore fetchPokeList:", error);
     }
-}
 
-   async function fetchPokeDetail(pokeId) {
-    try {
-        const pokeRes = await fetch(`${API_URL}/pokemons/${pokeId}`);
+    async function fetchPokeDetail(pokeId) {
+        try {
+            const pokeRes = await fetch(`${API_URL}/pokemons/${pokeId}`);
 
-        if (!pokeRes.ok) {
-            throw new Error("Errore nella risposta API");
+            if (!pokeRes.ok) {
+                throw new Error("Errore nella risposta API");
+            }
+
+            const pokeData = await pokeRes.json();
+            return pokeData.pokemon;
+
+        } catch (error) {
+            console.error("Errore fetchPokeDetail:", error);
         }
-
-        const pokeData = await pokeRes.json();
-        return pokeData.pokemon;
-
-    } catch (error) {
-        console.error("Errore fetchPokeDetail:", error);
     }
-}
 
-    {/*--------FUNZIONI PREFERITI---------*/ }
     function addFavorite(pokeId) {
-        if(favorites.length === 6) return
+        if (favorites.length === 6) return
         setFavorites(prev => [...prev, pokeId])
     }
 
@@ -71,7 +69,6 @@ export function GlobalProvider({ children }) {
         }
     }
 
-    {/*--------FUNZIONI CONFRONTO---------*/ }
     function placePokeInCompare(pokeId, place) {
         setDuoToCompare(prev => {
             const newDuo = [...prev];
@@ -82,7 +79,7 @@ export function GlobalProvider({ children }) {
 
     function isSlotOccupiedByPokemon(pokeId, place) {
         return (duoToCompare[place] === pokeId)
-    } 
+    }
 
     function toggleSlot(pokeId, place) {
         if (isSlotOccupiedByPokemon(pokeId, place)) {
