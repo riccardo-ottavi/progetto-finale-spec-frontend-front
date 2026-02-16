@@ -22,7 +22,7 @@ export default function PokeDetailPage() {
             {pokeDetail ? (
             <BigCard poke={pokeDetail} />
         ) : (
-            <p>Loading...</p>
+            <p>Pokemon non trovato</p>
         )}
         </div>
         

@@ -10,7 +10,6 @@ const ListCard = React.memo(({ poke }) => {
     return (
         <tr>
             <div className="small-card">
-
                 <Link to={`/pokemons/${poke?.id}`}>
                     <img src={`https://img.pokemondb.net/artwork/large/${poke?.title.toLowerCase()}.jpg`}
                         alt={poke?.title}

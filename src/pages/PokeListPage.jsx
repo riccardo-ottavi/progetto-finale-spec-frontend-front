@@ -81,7 +81,6 @@ export default function PokeListPage() {
                         </th>
                     </tr>
                 </thead>
-
                 <tbody>
                     {sortedList.length === 0 && (
                         <div className="zero-results">
