@@ -53,19 +53,24 @@ export default function PokeListPage() {
         <div className="container">
             <table>
                 <thead className="row">
-                    <input
-                        type="text"
-                        onChange={(e) => debouncedSearch(e.target.value)}
-                        placeholder="Cerca..." />
-                    <select value={selectedCategory} onChange={handleCategoryChoice}>
-                        <option value="">Tutti</option>
-                        <option value="Attaccante Fisico">Attaccante Fisico</option>
-                        <option value="Attaccante Speciale">Attaccante Speciale</option>
-                        <option value="Attaccante Misto">Attaccante Misto</option>
-                        <option value="Difensore Fisico">Difensore Fisico</option>
-                        <option value="Difensore Misto">Difensore Misto</option>
-                        <option value="Difensore Speciale">Difensore Speciale</option>
-                    </select>
+                    <tr>
+                        <th>
+                            <input
+                                type="text"
+                                onChange={(e) => debouncedSearch(e.target.value)}
+                                placeholder="Cerca..." />
+                            <select value={selectedCategory} onChange={handleCategoryChoice}>
+
+                                <option value="">Tutti</option>
+                                <option value="Attaccante Fisico">Attaccante Fisico</option>
+                                <option value="Attaccante Speciale">Attaccante Speciale</option>
+                                <option value="Attaccante Misto">Attaccante Misto</option>
+                                <option value="Difensore Fisico">Difensore Fisico</option>
+                                <option value="Difensore Misto">Difensore Misto</option>
+                                <option value="Difensore Speciale">Difensore Speciale</option>
+                            </select>
+                        </th>
+                    </tr>
                     <tr>
                         <th
                             className="cell"
@@ -82,22 +87,27 @@ export default function PokeListPage() {
                     </tr>
                 </thead>
                 <tbody>
-                    {sortedList.length === 0 && (
-                        <div className="zero-results">
-                            <h2>Nessun Risultato</h2>
-                            <img
-                                src="https://tse2.mm.bing.net/th/id/OIP.KPEtbYVbXg2yQUqU0i0nsgHaDt?rs=1&pid=ImgDetMain&o=7&rm=3"
-                                alt="no-result"
+                    <tr>
+                        <td>
+                            {sortedList.length === 0 && (
+                            <div className="zero-results">
+                                <h2>Nessun Risultato</h2>
+                                <img
+                                    src="https://tse2.mm.bing.net/th/id/OIP.KPEtbYVbXg2yQUqU0i0nsgHaDt?rs=1&pid=ImgDetMain&o=7&rm=3"
+                                    alt="no-result"
+                                />
+                            </div>
+                        )
+                        }
+                        {sortedList.map((poke) => (
+                            <ListCard
+                                key={poke.id}
+                                poke={poke}
                             />
-                        </div>
-                    )
-                    }
-                    {sortedList.map((poke) => (
-                        <ListCard
-                            key={poke.id}
-                            poke={poke}
-                        />
-                    ))}
+                        ))}
+                        </td>
+  
+                    </tr>
                 </tbody>
             </table>
         </div>
