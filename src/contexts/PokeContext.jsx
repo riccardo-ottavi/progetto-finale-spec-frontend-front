@@ -57,8 +57,8 @@ export function GlobalProvider({ children }) {
         setFavorites(prev => prev.filter(id => id !== pokeId));
     }
 
-    function isFavorite(characterId) {
-        return favorites.includes(characterId);
+    function isFavorite(pokeId) {
+        return favorites.includes(pokeId);
     };
 
     function toggleFavorite(pokeId) {
