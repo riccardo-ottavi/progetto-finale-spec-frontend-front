@@ -1,12 +1,13 @@
-import { useContext, useEffect } from "react"
+import { useContext, useEffect, useState } from "react"
 import { GlobalContext } from "../contexts/PokeContext"
 import BigCard from "../components/BigCard";
 import EmptySlotCard from "../components/EmptySlotCard";
+import { fetchPokeDetail } from "../api/pokemon"
 
 export default function ComparatorPage() {
+    const { duoToCompare } = useContext(GlobalContext)
+    const [compareDetails, setCompareDetails] = useState([null, null]);
 
-    const { duoToCompare, fetchPokeDetail, compareDetails, setCompareDetails } = useContext(GlobalContext)
-    
     useEffect(() => {
         makeCompare();
     }, [duoToCompare]);
@@ -21,20 +22,18 @@ export default function ComparatorPage() {
     }
 
     return (
-        <>
-            <div className="comparator">
-                {compareDetails.map((poke, index) => (
-                    <div key={index} className="compare-slot">
-                        {poke ? (
-                            <BigCard
-                                poke={poke} 
-                            />
-                        ) : (
-                            <EmptySlotCard />
-                        )}
-                    </div>
-                ))}
-            </div>
-        </>
+        <div className="comparator">
+            {compareDetails.map((poke, index) => (
+                <div key={index} className="compare-slot">
+                    {poke ? (
+                        <BigCard
+                            poke={poke}
+                        />
+                    ) : (
+                        <EmptySlotCard />
+                    )}
+                </div>
+            ))}
+        </div>
     )
 }

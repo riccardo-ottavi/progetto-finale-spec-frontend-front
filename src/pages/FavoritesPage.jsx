@@ -1,23 +1,33 @@
 import { GlobalContext } from "../contexts/PokeContext"
-import { useContext } from "react"
+import { useContext, useEffect, useState } from "react"
 import ListCard from "../components/ListCard"
+import { fetchPokeDetail } from "../api/pokemon"
 
-export default function FavoritesPage(){
+export default function FavoritesPage() {
 
-    const {favorites, pokeList} = useContext(GlobalContext)
+    const { favorites } = useContext(GlobalContext)
+    const [favPokeList, setFavPokeList] = useState([]);
 
-    const getPokemonById = (id) => pokeList.find(p => p.id === id);
-     
-    const favPokeList = favorites.map((favId) => (
-        getPokemonById(favId)
-    ))
+    async function loadFavorites() {
+        try {
+            const data = await Promise.all(favorites.map(id => fetchPokeDetail(id)));
+            setFavPokeList(data);
+        } catch (error) {
+            console.error("Errore caricando i Pokémon preferiti:", error);
+        }
+    }
+
+    useEffect(() => {
+        loadFavorites()
+    }, [favorites])
+
 
     const emptyBallsNumb = 6 - favPokeList.length;
     const emptyBalls = Array.from({ length: emptyBallsNumb });
 
-    return(
+    return (
         <div className="container">
-        <h2>Lista Preferiti</h2>
+            <h2>Lista Preferiti</h2>
             {favPokeList?.map((_, i) => (
                 <img
                     key={i}
@@ -35,10 +45,10 @@ export default function FavoritesPage(){
                     className="ball-icon empty"
                 />
             ))}
-            
+
             {favPokeList?.map((p) => (
                 <div key={p?.id}>
-                    <ListCard 
+                    <ListCard
                         poke={p}
                     />
                 </div>

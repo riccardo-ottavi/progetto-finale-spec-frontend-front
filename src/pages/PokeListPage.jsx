@@ -1,19 +1,28 @@
-import { useContext, useState, useMemo, useCallback } from "react"
-import { GlobalContext } from "../contexts/PokeContext"
+import { useEffect, useState, useMemo, useCallback } from "react"
 import ListCard from "../components/ListCard";
+import { fetchPokeList } from "../api/pokemon"
 
 export default function PokeListPage() {
 
-    const { pokeList } = useContext(GlobalContext);
     const [query, setQuery] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("");
     const [sortBy, setSortBy] = useState("title");
     const [sortOrder, setSortOrder] = useState(1);
+    const [pokeList, setPokeList] = useState([]);
 
     const sortIcon = sortOrder === 1 ? "↓" : "↑";
 
     function handleCategoryChoice(e) {
         setSelectedCategory(e.target.value)
+    }
+
+    useEffect(() => {
+        loadList()
+    }, [])
+
+    async function loadList() {
+        const data = await fetchPokeList()
+        setPokeList(data)
     }
 
     function handleSort(newSortBy) {
@@ -90,23 +99,23 @@ export default function PokeListPage() {
                     <tr>
                         <td>
                             {sortedList.length === 0 && (
-                            <div className="zero-results">
-                                <h2>Nessun Risultato</h2>
-                                <img
-                                    src="https://tse2.mm.bing.net/th/id/OIP.KPEtbYVbXg2yQUqU0i0nsgHaDt?rs=1&pid=ImgDetMain&o=7&rm=3"
-                                    alt="no-result"
+                                <div className="zero-results">
+                                    <h2>Nessun Risultato</h2>
+                                    <img
+                                        src="https://tse2.mm.bing.net/th/id/OIP.KPEtbYVbXg2yQUqU0i0nsgHaDt?rs=1&pid=ImgDetMain&o=7&rm=3"
+                                        alt="no-result"
+                                    />
+                                </div>
+                            )
+                            }
+                            {sortedList.map((poke) => (
+                                <ListCard
+                                    key={poke.id}
+                                    poke={poke}
                                 />
-                            </div>
-                        )
-                        }
-                        {sortedList.map((poke) => (
-                            <ListCard
-                                key={poke.id}
-                                poke={poke}
-                            />
-                        ))}
+                            ))}
                         </td>
-  
+
                     </tr>
                 </tbody>
             </table>

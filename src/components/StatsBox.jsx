@@ -1,6 +1,5 @@
 export default function StatsBox( {poke} ){
 
-    //valore massimo raggiungibile in pokemon dalla singola statistica base (standard) 
     const MAX_STAT = 255;
 
     const statStyle = [

@@ -1,52 +1,12 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState } from "react";
 import useStorage from "../hooks/useStorage";
-const API_URL = import.meta.env.VITE_API_URL;
 
 export const GlobalContext = createContext()
 
 export function GlobalProvider({ children }) {
 
-    const [pokeList, setPokeList] = useState([]);
     const [favorites, setFavorites] = useStorage("favorites", []);
     const [duoToCompare, setDuoToCompare] = useState([null, null]);
-    const [pokeDetail, setPokeDetail] = useState(null);
-    const [compareDetails, setCompareDetails] = useState([null, null]);
-
-    useEffect(() => {
-        fetchPokeList()
-    }, [])
-
-    async function fetchPokeList() {
-        try {
-            const pokeRes = await fetch(`${API_URL}/pokemons`);
-
-            if (!pokeRes.ok) {
-                throw new Error("Errore nella risposta API");
-            }
-
-            const pokeData = await pokeRes.json();
-            setPokeList(pokeData);
-
-        } catch (error) {
-            console.error("Errore fetchPokeList:", error);
-        }
-    }
-
-    async function fetchPokeDetail(pokeId) {
-        try {
-            const pokeRes = await fetch(`${API_URL}/pokemons/${pokeId}`);
-
-            if (!pokeRes.ok) {
-                throw new Error("Errore nella risposta API");
-            }
-
-            const pokeData = await pokeRes.json();
-            return pokeData.pokemon;
-
-        } catch (error) {
-            console.error("Errore fetchPokeDetail:", error);
-        }
-    }
 
     function addFavorite(pokeId) {
         if (favorites.length === 6) return
@@ -92,19 +52,12 @@ export function GlobalProvider({ children }) {
     return (
         <GlobalContext.Provider
             value={{
-                pokeList,
-                setPokeList,
                 favorites,
                 addFavorite,
                 removeFavorite,
                 isFavorite,
-                fetchPokeDetail,
-                pokeDetail,
-                setPokeDetail,
                 placePokeInCompare,
                 duoToCompare,
-                compareDetails,
-                setCompareDetails,
                 isSlotOccupiedByPokemon,
                 toggleFavorite,
                 toggleSlot

@@ -1,20 +1,24 @@
 import { useParams } from "react-router-dom"
-import { useContext, useEffect } from "react";
+import { useState, useEffect } from "react";
 import BigCard from "../components/BigCard";
-import { GlobalContext } from "../contexts/PokeContext";
+import { fetchPokeDetail } from "../api/pokemon"
 
 export default function PokeDetailPage() {
 
     const { id } = useParams()
-    const { fetchPokeDetail, pokeDetail, setPokeDetail } = useContext(GlobalContext)
+    const [pokeDetail, setPokeDetail] = useState(null);
 
     useEffect(() => {
         loadDetail();
     }, [id]);
 
     async function loadDetail() {
+      try {
         const detail = await fetchPokeDetail(id);
         setPokeDetail(detail);
+      } catch (err) {
+        console.error("Errore caricando il Pokémon:", err);
+      }
     }
 
     return (
