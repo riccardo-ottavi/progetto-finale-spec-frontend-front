@@ -9,16 +9,23 @@ export default function ComparatorPage() {
     const [compareDetails, setCompareDetails] = useState([null, null]);
 
     useEffect(() => {
-        makeCompare();
+        loadCompare();
     }, [duoToCompare]);
 
-    async function makeCompare() {
-        const results = await Promise.all(
-            duoToCompare.map(id =>
-                id ? fetchPokeDetail(id) : null
-            )
-        );
-        setCompareDetails(results);
+    async function loadCompare() {
+        try {
+            const results = await Promise.all(
+                duoToCompare.map(id =>
+                    id ? fetchPokeDetail(id) : null
+                )
+            );
+
+            setCompareDetails(results);
+
+        } catch (err) {
+            console.error("Errore comparator:", err);
+            setError("Errore nel caricamento dei Pokémon");
+        }
     }
 
     return (

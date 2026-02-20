@@ -21,9 +21,15 @@ export default function PokeListPage() {
     }, [])
 
     async function loadList() {
-        const data = await fetchPokeList()
-        setPokeList(data)
+    try {
+        const data = await fetchPokeList();
+        setPokeList(data);
+
+    } catch (err) {
+        console.error("Errore caricamento lista:", err);
+        setError("Errore nel caricamento dei Pokémon");
     }
+}
 
     function handleSort(newSortBy) {
         if (sortBy === newSortBy) {

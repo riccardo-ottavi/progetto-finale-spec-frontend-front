@@ -7,8 +7,7 @@ const ListCard = React.memo(({ poke }) => {
 
     const { isFavorite, isSlotOccupiedByPokemon, toggleFavorite, toggleSlot } = useContext(GlobalContext);
 
-    return (
-       
+    return (     
             <div className="small-card">
                 <Link to={`/pokemons/${poke?.id}`} >
                     <img src={`https://img.pokemondb.net/artwork/large/${poke?.title.toLowerCase()}.jpg`}
@@ -24,8 +23,7 @@ const ListCard = React.memo(({ poke }) => {
                                 alt={poke?.category}
                                 className="role-icon"
                             />
-                        </div>
-                    
+                        </div>   
                 </Link>
                 <div className="icons cell" >
                     <img
@@ -51,8 +49,7 @@ const ListCard = React.memo(({ poke }) => {
                         alt="compare-icon-b"
                     />
                 </div>
-            </div>
-       
+            </div>       
     )
 })
 

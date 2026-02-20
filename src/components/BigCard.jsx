@@ -40,7 +40,6 @@ export default function BigCard({ poke }) {
                     />
                 </div>
             </div>
-
             <div className="types-box">
                 <img
                     src={`https://pokechart.weebly.com/uploads/1/3/7/0/13704287/${poke?.primaryType?.toLowerCase()}_orig.png`}
@@ -58,7 +57,6 @@ export default function BigCard({ poke }) {
             <div className="dex-text">
                 <p>{poke?.description}</p>
             </div>
-
             <img
                 src={poke?.image}
                 alt={poke?.title}

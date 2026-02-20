@@ -12,7 +12,6 @@ export async function fetchPokeList() {
 }
 
 export async function fetchPokeDetail(pokeId) {
-    try {
         const pokeRes = await fetch(`${API_URL}/pokemons/${pokeId}`);
 
         if (!pokeRes.ok) {
@@ -21,9 +20,5 @@ export async function fetchPokeDetail(pokeId) {
 
         const pokeData = await pokeRes.json();
         return pokeData.pokemon;
-
-    } catch (error) {
-        console.error("Errore fetchPokeDetail:", error);
-    }
 }
 

@@ -36,7 +36,6 @@ export default function FavoritesPage() {
                     className="ball-icon"
                 />
             ))}
-
             {emptyBalls?.map((_, i) => (
                 <img
                     key={i}
@@ -45,7 +44,6 @@ export default function FavoritesPage() {
                     className="ball-icon empty"
                 />
             ))}
-
             {favPokeList?.map((p) => (
                 <div key={p?.id}>
                     <ListCard
