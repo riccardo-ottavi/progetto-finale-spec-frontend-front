@@ -7,6 +7,7 @@ export default function FavoritesPage() {
 
     const { favorites } = useContext(GlobalContext)
     const [favPokeList, setFavPokeList] = useState([]);
+    const [error, setError] = useState(null);
 
     async function loadFavorites() {
         try {
@@ -14,6 +15,7 @@ export default function FavoritesPage() {
             setFavPokeList(data);
         } catch (error) {
             console.error("Errore caricando i Pokémon preferiti:", error);
+            setError("Errore nel caricamento dei preferiti");
         }
     }
 
@@ -51,6 +53,7 @@ export default function FavoritesPage() {
                     />
                 </div>
             ))}
+            {error && <p className="error">{error}</p>}
         </div>
     )
 }
