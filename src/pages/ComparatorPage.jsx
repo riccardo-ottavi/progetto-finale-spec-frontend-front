@@ -7,6 +7,7 @@ import { fetchPokeDetail } from "../api/pokemon"
 export default function ComparatorPage() {
     const { duoToCompare } = useContext(GlobalContext)
     const [compareDetails, setCompareDetails] = useState([null, null]);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         loadCompare();
@@ -41,6 +42,8 @@ export default function ComparatorPage() {
                     )}
                 </div>
             ))}
+            {error && <p className="error">{error}</p>}
         </div>
+        
     )
 }

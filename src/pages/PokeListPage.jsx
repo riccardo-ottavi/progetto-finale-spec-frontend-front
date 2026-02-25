@@ -9,6 +9,7 @@ export default function PokeListPage() {
     const [sortBy, setSortBy] = useState("title");
     const [sortOrder, setSortOrder] = useState(1);
     const [pokeList, setPokeList] = useState([]);
+    const [error, setError] = useState(null);
 
     const sortIcon = sortOrder === 1 ? "↓" : "↑";
 
@@ -120,6 +121,7 @@ export default function PokeListPage() {
                                     poke={poke}
                                 />
                             ))}
+                            {error && <p className="error">{error}</p>}
                         </td>
 
                     </tr>
