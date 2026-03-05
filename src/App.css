@@ -82,6 +82,10 @@ h5{
   align-items: center;
 }
 
+.role-text{
+  font-weight: 800;
+}
+
 .small-card img {
   max-width: 190px;
 }
@@ -101,7 +105,8 @@ h5{
   width: 730px;
   border: 1px rgba(0, 0, 0, 0.274) solid;
   border-radius: 10px;
-  padding: 10px;
+  padding: 15px;
+  align-self: center;
 }
 
 .stat-bar {
@@ -195,7 +200,9 @@ nav a {
 
 .comparator {
   display: flex;
-  margin-top: 5vh;
+  height: 100%;
+  width: 100%;
+  margin-top: 8.5vh;
   justify-content: center;
   gap: 2.5vh;
 }
@@ -226,6 +233,7 @@ nav a {
   border-radius: 10px;
   padding: 10px;
   min-height: 100px;
+  margin-top: 13px;
 }
 
 h1 {
@@ -243,7 +251,7 @@ h3 {
 .poke-infos {
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 15px;
 }
 
 .zero-results{
