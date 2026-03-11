@@ -59,7 +59,7 @@ export default function PokeListPage() {
         const filteredList = pokeList?.filter((p) => p?.title?.toLowerCase()
             .includes(query.toLowerCase()) &&
             (selectedCategory === "" || p.category === selectedCategory))
-        const sorted = [...filteredList].sort((a, b) =>
+        const sorted = filteredList.sort((a, b) =>
             sortOrder * a[sortBy].localeCompare(b[sortBy])
         )
         return sorted
@@ -76,7 +76,6 @@ export default function PokeListPage() {
                                 onChange={(e) => debouncedSearch(e.target.value)}
                                 placeholder="Cerca..." />
                             <select value={selectedCategory} onChange={handleCategoryChoice}>
-
                                 <option value="">Tutti</option>
                                 <option value="Attaccante Fisico">Attaccante Fisico</option>
                                 <option value="Attaccante Speciale">Attaccante Speciale</option>
